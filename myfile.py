@@ -938,7 +938,7 @@ def backup_proj_src():
     # G:\project\Android\moments\app\src\main\java\com\example\moments\repository\CommentRepository.java
 
     proj_path = r"G:\project\Android\LoginApplication\handout\loginApllication"
-    dst_path = r"G:\project\Android\LoginApplication3_stash"
+    dst_path = r"G:\project\Android\LoginApplication3_stash2"
     
     
     
@@ -1062,6 +1062,6 @@ if __name__ == "__main__":
 # size: 1940172 B,  1940.172 KB,  1.940172 MB
 
     # test_re()
-    # backup_proj_src()
+    backup_proj_src()
 
 
