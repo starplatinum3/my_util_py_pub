@@ -937,9 +937,25 @@ def backup_proj_src():
     # dst_path = r"G:\file\学校\Android\拓展实验1\moments"
     # G:\project\Android\moments\app\src\main\java\com\example\moments\repository\CommentRepository.java
 
-    proj_path = r"G:\project\Android\LoginApplication\handout\loginApllication"
-    dst_path = r"G:\project\Android\LoginApplication3_stash2"
+    # proj_path = r"G:\project\Android\LoginApplication\handout\loginApllication"
+    # dst_path = r"G:\project\Android\LoginApplication3_stash2"
+
+    # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
+    # dst_path = r"D:\什么垃圾\备份\what-rubbish-private-sjc_add_color"
     
+    # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
+    # dst_path = r"D:\什么垃圾\备份\what-rubbish-private-register_cant_find"
+
+    # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
+    # dst_path = r"D:\什么垃圾\备份\what-rubbish-private-register"
+    # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
+    # dst_path = r"D:\什么垃圾\备份\what-rubbish-private-屏幕适配之前"
+
+    # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
+    # dst_path = r"D:\什么垃圾\备份\what-rubbish-private-做好了数据库实体定义"
+
+    proj_path = r"D:\proj\private\springboot\eye"
+    dst_path = r"D:\proj\waibao\whatRubbish2\rubbishDb"
     
     
     
