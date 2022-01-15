@@ -954,8 +954,71 @@ def backup_proj_src():
     # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
     # dst_path = r"D:\什么垃圾\备份\what-rubbish-private-做好了数据库实体定义"
 
-    proj_path = r"D:\proj\private\springboot\eye"
-    dst_path = r"D:\proj\waibao\whatRubbish2\rubbishDb"
+    # proj_path = r"D:\proj\private\springboot\eye"
+    # dst_path = r"D:\proj\waibao\whatRubbish2\rubbishDb"
+
+    # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
+    # dst_path = r"D:\proj\waibao\whatRubbish2\back"
+
+    # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
+    # dst_path = r"D:\proj\waibao\whatRubbish2\代码注释删除之前"
+    
+    # proj_path = r"D:\proj\wx\temp_wx"
+    # dst_path = r"D:\school\iot\大作业\微信小程序"
+
+    # proj_path = r"D:\proj\iot\mqp-iot-db"
+    # dst_path = r"D:\school\iot\大作业\后端"
+
+    # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
+    # dst_path = r"D:\proj\waibao\whatRubbish2\加入zj代码之前"
+
+    # proj_path = r"D:\proj\iot\mqp-iot-db"
+    # dst_path = r"D:\school\iot\大作业\增加mqtt_现在是私人的代码"
+
+    # proj_path = r"D:\proj\iot\mqp-iot-db"
+    # dst_path = r"D:\school\iot\大作业\大作业交付\后台"
+
+    # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
+    # dst_path = r"D:\什么垃圾\城市选择用后台"
+
+    # proj_path = r"D:\proj\iot\mqp-iot-db"
+    # dst_path = r"D:\school\iot\大作业\大作业交付 密码正确\backend"
+
+    # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
+    # dst_path = r"D:\proj\waibao\whatRubbish2\备份修改个人"
+
+    # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
+    # dst_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-final"
+
+    # proj_path = r"D:\proj\waibao\what-rubbish-final\what-rubbish-final"
+    # dst_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-final2"
+
+    # proj_path = r"D:\proj\waibao\what-rubbish-final\what-rubbish-final"
+    # dst_path = r"D:\school\安卓\大作业交付\what-rubbish-final-handout"
+
+    # proj_path = r"D:\proj\waibao\whatRubbish2\rubbishDb"
+    # dst_path = r"D:\school\安卓\大作业交付\what-rubbish-db"
+
+    # proj_path = r"D:\proj\waibao\whatRubbish2\rubbishDb"
+    # dst_path = r"D:\school\java高级\大作业\大作业上交\what-rubbish-db"
+
+    # proj_path = r"D:\proj\springboot\kinect3"
+    # dst_path = r"D:\newfit\红包不能发1元的\newfit"
+
+    # proj_path = r"D:\proj\private\newfit_vue_private"
+    # dst_path = r"D:\proj\vue\newfit_vue_private"
+
+    # proj_path = r"D:\proj\vue\vue-element-admin"
+    # dst_path = r"D:\proj\waibao\whatRubbish2\whatRubbishAdmin"
+
+    proj_path = r"D:\proj\Android\安卓物理小球滚动游戏源码_爱给网_aigei_com\安卓物理小球滚动游戏源码"
+    dst_path = r"D:\proj\Android\physics_ball_rolling_game"
+
+    # 安卓物理小球滚动游戏源码
+    
+
+    
+
     
     
     
@@ -1052,10 +1115,12 @@ if __name__ == "__main__":
     # list_dir_size(r"D:\project")
     # list_dir_path=r"D:\qqfile\2500441778"
     # list_dir_path="D:\\"
-    list_dir_path = "C:\\"
+    # list_dir_path = "C:\\"
     # lst_dir=os.listdir(list_dir_path)
     # print(lst_dir)
+    list_dir_path =r"D:\school\安卓\大作业交付\what-rubbish-final-handout"
     # print_files_if_size_with_unit(list_dir_path,100,"MB")
+    # print_files_if_size_with_unit(list_dir_path,10,"MB")
     # PermissionError: [WinError 5] 拒绝访问。: 'D:\\$RECYCLE.BIN\\S-1-5-18'
     # r"D:\qqfile"
     # download_img("https://raw.githubusercontent.com/qq547276542/blog_image/master/%E7%81%B0%E8%89%B2%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B/1.png",
