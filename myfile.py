@@ -954,8 +954,11 @@ def backup_proj_src():
     # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
     # dst_path = r"D:\什么垃圾\备份\what-rubbish-private-做好了数据库实体定义"
 
-    proj_path = r"D:\proj\private\springboot\eye"
-    dst_path = r"D:\proj\waibao\whatRubbish2\rubbishDb"
+    # proj_path = r"D:\proj\private\springboot\eye"
+    # dst_path = r"D:\proj\waibao\whatRubbish2\rubbishDb"
+
+    proj_path = r"D:\project\waibao\what-rubbish-final"
+    dst_path = r"D:\project\waibao\what-rubbish_mario"
     
     
     
