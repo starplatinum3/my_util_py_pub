@@ -1,5 +1,6 @@
 # Python3 将GBK转换成utf-8编码，明天继续实现，把*.java文件 *.porperties文件都转成utf-8
 import codecs
+from logging.handlers import RotatingFileHandler
 
 
 def ReadFile(filePath, encoding="gbk"):
@@ -66,7 +67,9 @@ if __name__ == "__main__":
     # ReadDirectoryFile(".")
     
     # root_dir=r"G:\project\javaProj\eclipse_20_08\ccrental\src\cn\edu\zucc\personplan"
-    root_dir=r"D:\proj\cpp\data-struct-code-cpp"
+    # root_dir=r"D:\proj\cpp\data-struct-code-cpp"
+    root_dir=r"D:\proj\Android\安卓物理小球滚动游戏源码_爱给网_aigei_com\安卓物理小球滚动游戏源码"
     
     ReadDirectoryFile(root_dir,end_with_list)
     print("end")
+    print("out here ",root_dir)

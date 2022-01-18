@@ -1,0 +1,3 @@
+D:/home/pi/writer/log
+
+D:\home\pi\writer\log

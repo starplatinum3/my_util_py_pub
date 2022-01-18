@@ -18,6 +18,17 @@
 # 端口写死了.  需要自己换
 # 会有 kill 不掉 java的问题 这样很麻烦
 # 很多次都是第一次 kill 不掉，第二次才能kill掉。。
+# 在config 里面设置 这三个东西，jar包的位置，最好是绝对路径
+# self.jar_name = "/home/mqp/iot/mqp-iot-db-0.0.1-SNAPSHOT.jar"
+# log文件的名字模板，需要有个{} 里面我会填充时间
+#         self.log_file_name_templete = "log_{}.log"
+# 运行的端口
+#         self.port = "8899"
+# 然后 python3 kill_java_and_nohup.py  跑起来
+# 跑起来之后 会打印 cmd : cat log_时间_.log
+# 可以复制  cat log_时间_.log 这句命令， 用来查看运行log
+# 其实很多情况下他会显示端口已经被占用，但是只要第二次运行 python3 kill_java_and_nohup.py
+# 基本上就可以成功
 
 import os
 
@@ -36,10 +47,19 @@ class Config():
         # self.sudo=" "
         # # sudo 后面最好有个空格
 
-        self.jar_name = "pz-blog-1.0.jar"
+        # self.jar_name = "/home/mqp/whatRubbish-0.0.1-SNAPSHOT.jar"
+        # self.log_file_name_templete = "log_{}.log"
+        # self.port = "8889"
+
+        self.jar_name = "/home/mqp/iot/mqp-iot-db-0.0.1-SNAPSHOT.jar"
         self.log_file_name_templete = "log_{}.log"
-        self.port = "8085"
+        self.port = "8899"
+        # self.jar_name = "pz-blog-1.0.jar"
+        # self.log_file_name_templete = "log_{}.log"
+        # self.port = "8085"
         self.sudo=" "
+
+        
 
 
 def show_info(out):
