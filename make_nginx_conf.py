@@ -11,6 +11,13 @@ root_path="/home/mqp/wx-sorting_build"
 
 #/home/mqp/wx-sorting_build_web_desktop
 
+def remove(lst, what=""):
+    ret = []
+    for val in lst:
+        if val == what:
+            continue
+        ret.append(val)
+    return ret
 
 class Config():
     def __init__(self):
