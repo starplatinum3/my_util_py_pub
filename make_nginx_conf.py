@@ -4,8 +4,12 @@ import os
 # port="8889"
 port="8890"
 # 阿里云打开
-root_path="/home/mqp/wx-sorting_build"
+#root_path="/home/mqp/wx-sorting_build"
+#/home/mqp/wx-sorting_build_web_desktop
 
+root_path="/home/mqp/wx-sorting_build_web_desktop"
+
+#/home/mqp/wx-sorting_build_web_desktop
 with open("nginx_template.conf","r",encoding="utf-8") as f:
     nginx_template= f.read()
 
