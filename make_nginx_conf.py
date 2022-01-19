@@ -4,10 +4,10 @@ import os
 # port="8889"
 port="8890"
 # 阿里云打开
-#root_path="/home/mqp/wx-sorting_build"
+root_path="/home/mqp/wx-sorting_build"
 #/home/mqp/wx-sorting_build_web_desktop
 
-root_path="/home/mqp/wx-sorting_build_web_desktop"
+# root_path="/home/mqp/wx-sorting_build_web_desktop"
 
 #/home/mqp/wx-sorting_build_web_desktop
 with open("nginx_template.conf","r",encoding="utf-8") as f:
@@ -31,8 +31,8 @@ with open(out_path,"w",encoding="utf-8") as f:
     f.write(out_str)
 
 print("config write here",out_path)
-
-
+print(f"nginx_root_dir {nginx_root_dir}")
+print(f"port {port}")
 
 os.system(f"mkdir {nginx_root_dir}")
 os.system(f"cp /usr/sbin/nginx  {nginx_root_dir}/nginx")
