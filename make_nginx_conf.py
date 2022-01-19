@@ -29,6 +29,7 @@ with open(out_path,"w",encoding="utf-8") as f:
 print("config write here",out_path)
 
 
+
 os.system(f"mkdir {nginx_root_dir}")
 os.system(f"cp /usr/sbin/nginx  {nginx_root_dir}/nginx")
 
@@ -36,6 +37,7 @@ os.system(f"cp /usr/sbin/nginx  {nginx_root_dir}/nginx")
 # os.system(f"mkdir /home/nginx/{port}/log")
 os.system(f"mkdir {nginx_root_dir}/log")
 os.system(f"{nginx_root_dir}/nginx -c {nginx_root_dir}/nginx_{port}.conf")
-
+print("查看nginx 有没有启动")
+os.system(f"lsof -i :{port}")
 # os.system(f"/home/nginx/{port}/nginx -c /home/nginx/{port}/nginx_{port}.conf")
 
