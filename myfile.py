@@ -1011,15 +1011,16 @@ def backup_proj_src():
     # proj_path = r"D:\proj\vue\vue-element-admin"
     # dst_path = r"D:\proj\waibao\whatRubbish2\whatRubbishAdmin"
 
-    proj_path = r"D:\proj\Android\安卓物理小球滚动游戏源码_爱给网_aigei_com\安卓物理小球滚动游戏源码"
-    dst_path = r"D:\proj\Android\physics_ball_rolling_game"
+    # proj_path = r"D:\proj\Android\安卓物理小球滚动游戏源码_爱给网_aigei_com\安卓物理小球滚动游戏源码"
+    # dst_path = r"D:\proj\Android\physics_ball_rolling_game"
 
     # 安卓物理小球滚动游戏源码
     
 
+    proj_path = r"G:\project\react\AwesomeProject"
+    dst_path = r"G:\project\react\AwesomeBasketball"
     
 
-    
     
     
     # dst_path = r"G:\project\javaProj\gaoji_back"
