@@ -891,7 +891,7 @@ def copyfile_lst(src_lst, dst_lst):
         idx += 1
 
 
-def backup_proj_src():
+def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"G:\project\react\AwesomeBasketball"):
     # proj_path = r"G:\project\springbootProj\writer\writer-vue-new\writer-vue-new"
     # proj_path = r"G:\project\springbootProj\writer-new2\writer-new"
     # proj_path = r"G:\project\Android\LoginApplication\LoginApplication"
@@ -1017,8 +1017,8 @@ def backup_proj_src():
     # 安卓物理小球滚动游戏源码
     
 
-    proj_path = r"G:\project\react\AwesomeProject"
-    dst_path = r"G:\project\react\AwesomeBasketball"
+    # proj_path = r"G:\project\react\AwesomeProject"
+    # dst_path = r"G:\project\react\AwesomeBasketball"
     
 
     
@@ -1033,6 +1033,7 @@ def backup_proj_src():
     re_lst = None
     # 所有文件都查找
     # re_lst = [".java$"]
+    # 符合 这个re 的查找
 
     like_str_list = ["zip", "js"]
     # get_files_if_name_like(proj_path, file_lst, like_what="zip", ignore_dir_lst=ignore_dir_lst)
@@ -1071,12 +1072,30 @@ def backup_proj_src():
     # python 解析 gitignore
     # /** 形式正则
     # test_re()
+    # file_lst 传入引用 之后会放进去那些文件
     get_src_dst_list_re(proj_path, dst_path, file_lst, dst_lst,
                         ignore_dir_lst, re_lst)
     print("file_lst", file_lst)
     print("dst_lst", dst_lst)
     copyfile_lst(file_lst,dst_lst)
     print("back up at",dst_path)
+
+utf_8="utf-8"
+gbk="gbk"
+def diff_encode_read(path):
+    try:
+        with open(path,"r",encoding="utf-8") as f:
+        # with open(from_file,"r") as f:
+            data=f.read()
+            return data
+    except:
+        try:
+            with open(path,"r",encoding=gbk) as f:
+                data=f.read()
+                return data
+        except:
+            print("error",path)
+            return None
 
 if __name__ == "__main__":
     # get_file_names()
@@ -1144,6 +1163,30 @@ if __name__ == "__main__":
 # size: 1940172 B,  1940.172 KB,  1.940172 MB
 
     # test_re()
-    backup_proj_src()
+    # proj_path = r"D:\project\waibao\what-rubbish-final"
+    # dst_path = r"D:\project\waibao\what-rubbish-final-bak\整合翻牌子游戏之前"
+
+    # proj_path = r"D:\project\waibao\what-rubbish-final"
+    # dst_path = r"D:\project\waibao\what-rubbish-final-bak\整合flappyCow游戏之前"
+
+    # proj_path = r"D:\project\waibao\what-rubbish-final"
+    # dst_path = r"D:\project\waibao\what-rubbish-final-bak\整合flappyCow游戏之后"
+
+    # proj_path = r"D:\project\waibao\what-rubbish-final"
+    # dst_path = r"D:\project\waibao\what-rubbish-final-bak\整合flappyCow游戏之后"
+
+    # proj_path = r"G:\project\springbootProj\writer\writer_iot"
+    # dst_path = r"G:\project\springbootProj\writer\batch改变之前"
+
+    # proj_path = r"G:\project\Android\AlarmClock"
+    # dst_path = r"G:\project\Android\AlarmClockBack\加入文件阅读器之前"
+
+    # proj_path = r"G:\project\Android\Omni-Notes-develop"
+    # dst_path = r"G:\project\Android\Omni-Notes-develop点击链接浏览器"
+
+    proj_path = r"G:\project\Android\Omni-Notes-develop"
+    dst_path = r"G:\project\Android\Omni-Notes-develop打算提交"
+# D:\project\waibao\what-rubbish-final\app\src\main\java\com\bn\tl\anzhi
+    backup_proj_src(proj_path = proj_path,dst_path=dst_path)
 
 
