@@ -1026,7 +1026,7 @@ def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"
     # dst_path = r"G:\project\javaProj\gaoji_back"
     file_lst = []
     dst_lst = []
-    ignore_dir_lst = ["dist", "node_modules", ".git", ".idea","out","target","build","backup","sql"]
+    ignore_dir_lst = ["dist", "node_modules", ".git", ".idea","out","target","build","backup","sql","release"]
 
     ignore_filename_lst = ["dist (5).zip"]
     # re_lst = ["\.java$"]
@@ -1184,9 +1184,25 @@ if __name__ == "__main__":
     # proj_path = r"G:\project\Android\Omni-Notes-develop"
     # dst_path = r"G:\project\Android\Omni-Notes-develop点击链接浏览器"
 
-    proj_path = r"G:\project\Android\Omni-Notes-develop"
-    dst_path = r"G:\project\Android\Omni-Notes-develop打算提交"
+    # proj_path = r"G:\project\Android\Omni-Notes-develop"
+    # dst_path = r"G:\project\Android\Omni-Notes-develop打算提交"
+
+    # proj_path = r"G:\project\springbootProj\eye"
+    # dst_path = r"G:\project\springbootProj\comic"
+
+    # proj_path = r"G:\project\springbootProj\comic"
+    # dst_path = r"G:\project\springbootProj\sbStart"
+
+    # proj_path = r"G:\project\springbootProj\codeGen\SpringBootCodeGenerator"
+    # dst_path = r"G:\project\springbootProj\codeGen\SpringBootCodeGeneratorStarp"
+
+    proj_path = r"G:\project\Android\AlarmClock"
+    dst_path = r"G:\project\Android\AlarmClockPubFront"
+
+    
+    
 # D:\project\waibao\what-rubbish-final\app\src\main\java\com\bn\tl\anzhi
+
     backup_proj_src(proj_path = proj_path,dst_path=dst_path)
 
 
