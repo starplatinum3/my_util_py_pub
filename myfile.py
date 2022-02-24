@@ -1199,8 +1199,11 @@ if __name__ == "__main__":
     # proj_path = r"G:\project\Android\AlarmClock"
     # dst_path = r"G:\project\Android\AlarmClockPubFront"
 
-    proj_path = r"G:\project\pythonProj\my_util_py_pub"
-    dst_path = r"G:\project\pythonProj\my_util_py_pub_v1"
+    # proj_path = r"G:\project\pythonProj\my_util_py_pub"
+    # dst_path = r"G:\project\pythonProj\my_util_py_pub_v1"
+
+    proj_path = r"G:\project\javaProj\myJavaUtil"
+    dst_path = r"G:\project\javaProj\myJavaUtil_v1"
 
     
     
