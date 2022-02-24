@@ -1205,8 +1205,12 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\springboot\private\writer"
     # dst_path = r"D:\proj\springboot\private\writer_v1"
 
-    proj_path = r"D:\proj\springboot\writer-new"
-    dst_path = r"D:\proj\springboot\writer-new_v1.1"
+    # proj_path = r"D:\proj\springboot\writer-new"
+    # dst_path = r"D:\proj\springboot\writer-new_v1.1"
+
+    proj_path = r"D:\proj\pythonProj\my_util_py_pub"
+    dst_path = r"D:\proj\pythonProj\my_util_py_pub_v1"
+
 
     
     
