@@ -1211,8 +1211,18 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\vue\git-cache"
     # dst_path = r"D:\proj\vue\git-cache-src-not-good"
 
-    proj_path = r"D:\proj\vue\git-cache"
-    dst_path = r"D:\proj\vue\git-cache-el-vue3-no"
+    # proj_path = r"D:\proj\vue\git-cache"
+    # dst_path = r"D:\proj\vue\git-cache-el-vue3-no"
+
+    # proj_path = r"D:\proj\zucc\docker-compose-simple"
+    # dst_path = r"D:\proj\zucc\docker-compose-simple-no-log"
+
+    # proj_path = r"D:\proj\private\wink-test-private"
+    # dst_path = r"D:\proj\private\wink-test-private-with-cmd"
+
+    proj_path = r"D:\proj\private\wink-test-private\blink_detect"
+    dst_path = r"D:\proj\private\blink_detect-model-have"
+
 
 
     
