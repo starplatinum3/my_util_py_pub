@@ -1,5 +1,7 @@
 
 import os
+
+from myfile import make_dir_if_not_exists
 # port=8888
 # port="8889"
 # port="8890"
@@ -106,7 +108,8 @@ out_str=out_str.replace("$root_path$", root_path)
 
 
 nginx_root_dir=f"/home/nginx/{port}"
-
+# makrdir 
+make_dir_if_not_exists(nginx_root_dir)
 # out_path=f"/home/nginx/nginx_{port}.conf"
 out_path=f"{nginx_root_dir}/nginx_{port}.conf"
 # out_path=f"nginx_{port}.conf"

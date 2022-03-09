@@ -575,6 +575,12 @@ def absolute_mkdir(dir_name):
 
     # os.makedirs()
 
+def make_dir_if_not_exists(dir):
+    if os.path.exists(dir):
+        return
+    # pyton  mkdri 
+    print("创建目录 ",dir)
+    os.mkdir(dir)
 
 # coding: utf8
 import requests
