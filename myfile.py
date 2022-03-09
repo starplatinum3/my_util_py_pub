@@ -1220,8 +1220,12 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\private\wink-test-private"
     # dst_path = r"D:\proj\private\wink-test-private-with-cmd"
 
-    proj_path = r"D:\proj\private\wink-test-private\blink_detect"
-    dst_path = r"D:\proj\private\blink_detect-model-have"
+    # proj_path = r"D:\proj\private\wink-test-private\blink_detect"
+    # dst_path = r"D:\proj\private\blink_detect-model-have"
+
+    proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第3章\exampleDEMO"
+    dst_path = r"D:\school\vue\demo3"
+    # print("1")
 
 
 

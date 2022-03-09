@@ -4,8 +4,13 @@ import os
 # port="8889"
 # port="8890"
 # 阿里云打开
-root_path="/home/mqp/wx-sorting_build"
+################ config #####################
+# 配置 html 静态文件的位置
+# root_path="/home/mqp/wx-sorting_build"
+root_path="/home/mqp/gitCacheVue/dist/dist"
+
 #/home/mqp/wx-sorting_build_web_desktop
+do_unzip=False
 
 # root_path="/home/mqp/wx-sorting_build_web_desktop"
 
@@ -35,15 +40,20 @@ class Config():
         # self.log_file_name_templete = "log_{}.log"
         # self.port = "8889"
 
-        self.jar_name = "/home/mqp/iot/mqp-iot-db-0.0.1-SNAPSHOT.jar"
+        # self.jar_name = "/home/mqp/iot/mqp-iot-db-0.0.1-SNAPSHOT.jar"
         self.log_file_name_templete = "log_{}.log"
         # self.port = "8899"
-        self.port="8890"
+        # self.port="8890"
         # self.jar_name = "pz-blog-1.0.jar"
         # self.log_file_name_templete = "log_{}.log"
         # self.port = "8085"
         self.sudo=" "
         self.kill_app_name="nginx"
+        self.port="8086"
+
+
+################ config #####################
+
 
 def kill_app_line(line, config):
     print("kill_app_line")
@@ -78,6 +88,7 @@ def kill_app(config):
     # java 杀完了
     return True
 
+# 先把这个端口的nginx 杀掉
 config = Config()
 kill_app(config)
 port=config.port
@@ -91,6 +102,7 @@ out_str=nginx_template.replace("$port$", port)
 out_str=out_str.replace("$root_path$", root_path)
 
 
+# unzip   -o  dist.zip  -d 	 dist/
 
 
 nginx_root_dir=f"/home/nginx/{port}"
