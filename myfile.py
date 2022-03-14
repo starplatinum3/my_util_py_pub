@@ -1220,9 +1220,14 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\private\wink-test-private"
     # dst_path = r"D:\proj\private\wink-test-private-with-cmd"
 
-    proj_path = r"D:\proj\private\wink-test-private\blink_detect"
-    dst_path = r"D:\proj\private\blink_detect-model-have"
+    # proj_path = r"D:\proj\private\wink-test-private\blink_detect"
+    # dst_path = r"D:\proj\private\blink_detect-model-have"
 
+    # proj_path = r"D:\proj\vue\HuNanGovernmentTransportationPlatform"
+    # dst_path = r"D:\proj\vue\HuNanGovernmentTransportationPlatform-before-uniapp"
+
+    proj_path = r"D:\proj\vue\vue3-quiz"
+    dst_path = r"D:\proj\vue\vue3-quiz-master"
 
 
     
