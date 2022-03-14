@@ -575,6 +575,12 @@ def absolute_mkdir(dir_name):
 
     # os.makedirs()
 
+def make_dir_if_not_exists(dir):
+    if os.path.exists(dir):
+        return
+    # pyton  mkdri 
+    print("创建目录 ",dir)
+    os.mkdir(dir)
 
 # coding: utf8
 import requests
@@ -1223,11 +1229,10 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\private\wink-test-private\blink_detect"
     # dst_path = r"D:\proj\private\blink_detect-model-have"
 
-    # proj_path = r"D:\proj\vue\HuNanGovernmentTransportationPlatform"
-    # dst_path = r"D:\proj\vue\HuNanGovernmentTransportationPlatform-before-uniapp"
+    proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第3章\exampleDEMO"
+    dst_path = r"D:\school\vue\demo3"
+    # print("1")
 
-    proj_path = r"D:\proj\vue\vue3-quiz"
-    dst_path = r"D:\proj\vue\vue3-quiz-master"
 
 
     
