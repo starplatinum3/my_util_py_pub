@@ -1229,10 +1229,23 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\private\wink-test-private\blink_detect"
     # dst_path = r"D:\proj\private\blink_detect-model-have"
 
-    proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第3章\exampleDEMO"
-    dst_path = r"D:\school\vue\demo3"
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第3章\exampleDEMO"
+    # dst_path = r"D:\school\vue\demo3"
     # print("1")
 
+    
+
+    # proj_path = r"D:\proj\node\egg-demon\egg-demon"
+    # dst_path = r"D:\proj\node\git-cache-egg-pub"
+
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第3章\exampleDEMO"
+    # dst_path = r"D:\school\vue\lab3\noteBook"
+
+    # proj_path = r"E:\project\pythonProj\blink_detect"
+    # dst_path = r"E:\project\pythonProj\blink_detect_答辩完了"
+
+    proj_path = r"D:\school\spb\lab3\L03ThymeleafDemo"
+    dst_path = r"D:\school\spb\lab3\L03ThymeleafDemoCode"
 
 
     
