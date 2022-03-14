@@ -112,6 +112,7 @@ nginx_root_dir=f"/home/nginx/{port}"
 make_dir_if_not_exists(nginx_root_dir)
 # out_path=f"/home/nginx/nginx_{port}.conf"
 out_path=f"{nginx_root_dir}/nginx_{port}.conf"
+# 这里要写入 但是还没有创建目录
 # out_path=f"nginx_{port}.conf"
 with open(out_path,"w",encoding="utf-8") as f:
     # nginx_template= f.read()
@@ -121,7 +122,8 @@ print("config write here",out_path)
 print(f"nginx_root_dir {nginx_root_dir}")
 print(f"port {port}")
 
-os.system(f"mkdir {nginx_root_dir}")
+# os.system(f"mkdir {nginx_root_dir}")
+# make_dir_if_not_exists(nginx_root_dir)
 os.system(f"cp /usr/sbin/nginx  {nginx_root_dir}/nginx")
 
 # os.system(f"mkdir /home/nginx/{port}")
