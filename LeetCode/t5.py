@@ -37,19 +37,29 @@ class Solution:
                     # print("j",j)
                     printLstMarked(s,[i,j])
                     dp[i][j]+=2
+                    dpp=dp[i][j]
+                    print("dpp")
+                    print(dpp)
                     val=dp[i][j]
                     if dp[i][j]>max_num:
                         max_num=val
-                        maxi=i
-                        maxj=j
+                        maxi=i-1
+                        maxj=j+1
+                        print("maxi")
+                        print(maxi)
+                        print("maxj")
+                        print(maxj)
         # for i in range(le):
         #    for j in range(i,le):
 
         print("maxi",maxi)
         print("maxj",maxj)
-        return s[maxi:maxj]
+        return s[maxi:maxj+1]
 
 
 Solution=Solution()
-val=Solution.longestPalindrome("babad")
+# val=Solution.longestPalindrome("babad")
+val=Solution.longestPalindrome("cbbd")
+
+print("val")
 print(val)

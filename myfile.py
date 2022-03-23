@@ -1,3 +1,4 @@
+from copy import copy
 import os
 # from os.path import getsize
 
@@ -9,6 +10,7 @@ from strUtil.strUtil import sub_strs_start_end_all
 # from .direction import *
 import sys
 import strUtil.strUtil
+from time_util import get_now_time_str
 
 
 # !/usr/bin/python
@@ -114,6 +116,17 @@ def print_files_if(path, cond_func, **kwargs):
             # print(os.path.join(path, f))
             print(abs_path)
 
+def back_up_and_write(path,data):
+    # os.
+    time_str=get_now_time_str()
+    back_path=f"{path}.{time_str}"
+    # copy()
+    print("back_path",back_path)
+    os.rename(path, back_path)
+    
+    with open(path,"w") as f:
+        f.write(data)
+    
 
 # def get_files_if(path, file_lst: list, cond_func, **kwargs):
 #     lsdir = os.listdir(path)
@@ -1244,8 +1257,27 @@ if __name__ == "__main__":
     # proj_path = r"E:\project\pythonProj\blink_detect"
     # dst_path = r"E:\project\pythonProj\blink_detect_答辩完了"
 
-    proj_path = r"D:\school\spb\lab3\L03ThymeleafDemo"
-    dst_path = r"D:\school\spb\lab3\L03ThymeleafDemoCode"
+    # proj_path = r"D:\school\spb\lab3\L03ThymeleafDemo"
+    # dst_path = r"D:\school\spb\lab3\L03ThymeleafDemoCode"
+
+    # proj_path = r"D:\school\spb\Spring-Boot-Book\06\WebFluxMongodb"
+    # dst_path = r"D:\school\spb\lab4\WebFluxMongodbLab4"
+
+    # proj_path = r"D:\proj\springBoot\WebFlux_mongodb"
+    # dst_path = r"D:\school\spb\lab4\WebFlux_mongodb"
+
+    # proj_path = r"D:\school\spb\L04FluxServerPush"
+    # dst_path = r"D:\school\spb\lab4\L04FluxServerPush"
+
+    # proj_path = r"D:\school\spb\L04ReactiveMVC"
+    # dst_path = r"D:\school\spb\lab4\L04ReactiveMVC"
+
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第4章\example4"
+    # dst_path = r"D:\school\vue\lab4\code"
+
+    proj_path = r"D:\proj\springBoot\zj4-3-1"
+    dst_path = r"D:\proj\springBoot\zj4-3-1_to"
+
 
 
     
