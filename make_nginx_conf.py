@@ -9,7 +9,8 @@ from myfile import make_dir_if_not_exists
 ################ config #####################
 # 配置 html 静态文件的位置
 # root_path="/home/mqp/wx-sorting_build"
-root_path="/home/mqp/gitCacheVue/dist/dist"
+# root_path="/home/mqp/gitCacheVue/dist/dist"
+root_path="/home/mqp/imFront/dist"
 
 #/home/mqp/wx-sorting_build_web_desktop
 do_unzip=False
@@ -51,11 +52,21 @@ class Config():
         # self.port = "8085"
         self.sudo=" "
         self.kill_app_name="nginx"
-        self.port="8086"
+        # self.port="8086"
+        # im 前端
+        self.port="8087"
 
 
 ################ config #####################
 
+import time_util
+
+now_time_str= time_util.get_now_time_str()
+
+def move_dist():
+    os.system(f"mv   dist    dist_{now_time_str}/")
+    os.system(f"unzip  -o   /home/pi/writer/dist_admin_this.zip   -d  dist/")
+    
 
 def kill_app_line(line, config):
     print("kill_app_line")

@@ -34,32 +34,34 @@ import os
 
 import time
 
+from nohup_config import Config
 
-class Config():
-    def __init__(self):
-        # self.jar_name = "demo-0.0.1-SNAPSHOT.jar"
-        # # self.jar_name = "sys-writer-web-0.0.1-SNAPSHOT.jar"
-        # self.log_file_name_templete = "log_{}.log"
-        # # self.port="80"
-        # # self.port = "8088"
-        # self.port = "8080"
-        # # self.sudo = "sudo "
-        # self.sudo=" "
-        # # sudo 后面最好有个空格
+# Config
 
-        # self.jar_name = "/home/mqp/whatRubbish-0.0.1-SNAPSHOT.jar"
-        # self.log_file_name_templete = "log_{}.log"
-        # self.port = "8889"
-        self.log_file_name_templete = "log_{}.log"
-        # self.jar_name = "/home/mqp/iot/mqp-iot-db-0.0.1-SNAPSHOT.jar"
-        # self.port = "8899"
-        # self.jar_name = "pz-blog-1.0.jar"
-        # self.log_file_name_templete = "log_{}.log"
-        # self.port = "8085"
 
-        self.jar_name = "sys-writer-web-0.0.1-SNAPSHOT.jar"
-        self.port = "8088"
-        self.sudo=" "
+# class Config():
+#     def __init__(self):
+#         # self.jar_name = "demo-0.0.1-SNAPSHOT.jar"
+#         # # self.jar_name = "sys-writer-web-0.0.1-SNAPSHOT.jar"
+#         # self.log_file_name_templete = "log_{}.log"
+#         # # self.port="80"
+#         # # self.port = "8088"
+#         # self.port = "8080"
+#         # # self.sudo = "sudo "
+#         # self.sudo=" "
+#         # # sudo 后面最好有个空格
+
+#         # self.jar_name = "/home/mqp/whatRubbish-0.0.1-SNAPSHOT.jar"
+#         # self.log_file_name_templete = "log_{}.log"
+#         # self.port = "8889"
+
+#         self.jar_name = "/home/mqp/iot/mqp-iot-db-0.0.1-SNAPSHOT.jar"
+#         self.log_file_name_templete = "log_{}.log"
+#         self.port = "8899"
+#         # self.jar_name = "pz-blog-1.0.jar"
+#         # self.log_file_name_templete = "log_{}.log"
+#         # self.port = "8085"
+#         self.sudo=" "
 
         
 
@@ -178,7 +180,8 @@ def create_version_txt():
 
 # create_version_txt()
 config = Config()
-kill_java_and_nohup(config)
+kill_java(config)
+# kill_java_and_nohup(config)
 
 # line="java       659243 root   20u  IPv6 57698716      0t0  TCP *:http (LISTEN)"
 # # sps=line.split(" ")

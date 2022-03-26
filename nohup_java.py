@@ -34,32 +34,33 @@ import os
 
 import time
 
+from nohup_config import Config
 
-class Config():
-    def __init__(self):
-        # self.jar_name = "demo-0.0.1-SNAPSHOT.jar"
-        # # self.jar_name = "sys-writer-web-0.0.1-SNAPSHOT.jar"
-        # self.log_file_name_templete = "log_{}.log"
-        # # self.port="80"
-        # # self.port = "8088"
-        # self.port = "8080"
-        # # self.sudo = "sudo "
-        # self.sudo=" "
-        # # sudo 后面最好有个空格
+# Config
 
-        # self.jar_name = "/home/mqp/whatRubbish-0.0.1-SNAPSHOT.jar"
-        # self.log_file_name_templete = "log_{}.log"
-        # self.port = "8889"
-        self.log_file_name_templete = "log_{}.log"
-        # self.jar_name = "/home/mqp/iot/mqp-iot-db-0.0.1-SNAPSHOT.jar"
-        # self.port = "8899"
-        # self.jar_name = "pz-blog-1.0.jar"
-        # self.log_file_name_templete = "log_{}.log"
-        # self.port = "8085"
+# class Config():
+#     def __init__(self):
+#         # self.jar_name = "demo-0.0.1-SNAPSHOT.jar"
+#         # # self.jar_name = "sys-writer-web-0.0.1-SNAPSHOT.jar"
+#         # self.log_file_name_templete = "log_{}.log"
+#         # # self.port="80"
+#         # # self.port = "8088"
+#         # self.port = "8080"
+#         # # self.sudo = "sudo "
+#         # self.sudo=" "
+#         # # sudo 后面最好有个空格
 
-        self.jar_name = "sys-writer-web-0.0.1-SNAPSHOT.jar"
-        self.port = "8088"
-        self.sudo=" "
+#         # self.jar_name = "/home/mqp/whatRubbish-0.0.1-SNAPSHOT.jar"
+#         # self.log_file_name_templete = "log_{}.log"
+#         # self.port = "8889"
+
+#         self.jar_name = "/home/mqp/iot/mqp-iot-db-0.0.1-SNAPSHOT.jar"
+#         self.log_file_name_templete = "log_{}.log"
+#         self.port = "8899"
+#         # self.jar_name = "pz-blog-1.0.jar"
+#         # self.log_file_name_templete = "log_{}.log"
+#         # self.port = "8085"
+#         self.sudo=" "
 
         
 
@@ -88,6 +89,32 @@ def kill_java(config):
             return False
     # java 杀完了
     return True
+
+
+def nohup_app(config):
+    jar_name = config.jar_name
+
+    print("nohup java -jar")
+    # log_version=11
+
+    # with open("log_version.txt","r") as f:
+    #     data=f.read().strip()
+    #     log_version=int(data)
+
+    # log_file_name="kinect85_0.0.1_redpack10.log"
+    time_str = time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime())
+    # print(time_str)
+    # log_file_name = "kinect0.0.1_redpack{}.log".format(time_str)
+    log_file_name = config.log_file_name_templete.format(time_str)
+    # os.system("nohup java -jar  demo-0.0.1-SNAPSHOT.jar   > "+log_file_name+"  &")
+    # out=os.popen("nohup java -jar  demo-0.0.1-SNAPSHOT.jar   > "+log_file_name+"  &")
+    out = os.popen(config.sudo + " nohup java -jar  " + jar_name + "  > " + log_file_name + "  &")
+    # os.system("")
+    # out.readlines()
+    show_info(out)
+    # print(out)
+    # print("log_file_name: ", log_file_name)
+    print("cmd : cat ", log_file_name)
 
 
 def kill_java_and_nohup(config):
@@ -178,7 +205,9 @@ def create_version_txt():
 
 # create_version_txt()
 config = Config()
-kill_java_and_nohup(config)
+# kill_java_and_nohup(config)
+
+nohup_app(config)
 
 # line="java       659243 root   20u  IPv6 57698716      0t0  TCP *:http (LISTEN)"
 # # sps=line.split(" ")

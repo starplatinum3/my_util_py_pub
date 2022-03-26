@@ -1244,8 +1244,15 @@ if __name__ == "__main__":
     # proj_path = r"E:\project\pythonProj\blink_detect"
     # dst_path = r"E:\project\pythonProj\blink_detect_答辩完了"
 
-    proj_path = r"D:\school\spb\lab3\L03ThymeleafDemo"
-    dst_path = r"D:\school\spb\lab3\L03ThymeleafDemoCode"
+    # proj_path = r"D:\school\spb\lab3\L03ThymeleafDemo"
+    # dst_path = r"D:\school\spb\lab3\L03ThymeleafDemoCode"
+
+    # proj_path = r"D:\proj\vue\V-IM\V-IM-Server"
+    # dst_path = r"D:\proj\springboot\V-IM-Server"
+
+    proj_path = r"D:\proj\waibao\whatRubbish2\rubbishDb"
+    dst_path = r"D:\proj\waibao\whatRubbish2\rubbishDbMultiMo"
+
 
 
     
