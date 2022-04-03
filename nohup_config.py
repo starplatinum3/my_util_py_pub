@@ -18,7 +18,8 @@ class Config():
         # self.port = "8899"
 
         self.jar_name = "/home/mqp/imIo/im-1.0-SNAPSHOT.jar"
-        self.port = "8080"
+        # self.port = "8080"
+        self.port = "8889"
 
         
         # self.jar_name = "pz-blog-1.0.jar"

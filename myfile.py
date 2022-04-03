@@ -85,7 +85,37 @@ def print_files(path):
     for f in files:
         print(os.path.join(path, f))
 
+def make_files_str(path,out_str):
+    lsdir = os.listdir(path)
+    dirs = [i for i in lsdir if os.path.isdir(os.path.join(path, i))]
+    if dirs:
+        for i in dirs:
+            print_files(os.path.join(path, i))
+    files = [i for i in lsdir if os.path.isfile(os.path.join(path, i))]
+    for f in files:
+        abs_path = os.path.join(path, f)
+        # print(os.path.join(path, f))
+        out_str+=abs_path+"\n"
 
+def make_files_lst(path,res_list,ignore_dir_lst):
+    try:
+        lsdir = os.listdir(path)
+    except Exception as e:
+        print(e)
+        return
+    dirs = [i for i in lsdir if os.path.isdir(os.path.join(path, i))]
+    if dirs:
+        for i in dirs:
+            if i in ignore_dir_lst:
+                continue
+            # print_files(os.path.join(path, i))
+            make_files_lst(os.path.join(path, i),res_list)
+    files = [i for i in lsdir if os.path.isfile(os.path.join(path, i))]
+    for f in files:
+        abs_path = os.path.join(path, f)
+        # print(os.path.join(path, f))
+        # out_str+=abs_path+"\n"
+        res_list.append(abs_path)
 # def print_files_if(path, cond_func):
 #     lsdir = os.listdir(path)
 #     dirs = [i for i in lsdir if os.path.isdir(os.path.join(path, i))]
@@ -140,7 +170,7 @@ def print_files_if(path, cond_func, **kwargs):
 #             print(abs_path)
 #             file_lst.append(abs_path)
 
-
+# 不是纯函数啊 
 def get_files_if(path, file_lst: list, like_str_lst: list, ignore_dir_lst: list):
     lsdir = os.listdir(path)
     dirs = [i for i in lsdir if os.path.isdir(os.path.join(path, i))]
@@ -283,7 +313,7 @@ def get_src_dst_list(src, dst, src_lst: list, dst_lst: list,
             dst_lst.append(abs_path_dst)
         idx += 1
 
-
+# 放到list re_lst 是类似他的  
 def get_src_dst_list_re(src, dst, src_lst: list, dst_lst: list,
                         ignore_dir_lst: list, re_lst):
     lsdir = os.listdir(src)
@@ -1250,8 +1280,11 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\vue\V-IM\V-IM-Server"
     # dst_path = r"D:\proj\springboot\V-IM-Server"
 
-    proj_path = r"D:\proj\waibao\whatRubbish2\rubbishDb"
-    dst_path = r"D:\proj\waibao\whatRubbish2\rubbishDbMultiMo"
+    # proj_path = r"D:\proj\waibao\whatRubbish2\rubbishDb"
+    # dst_path = r"D:\proj\waibao\whatRubbish2\rubbishDbMultiMo"
+
+    proj_path = r"D:\proj\springboot\writer-new"
+    dst_path = r"D:\proj\springboot\party-import"
 
 
 
@@ -1259,6 +1292,34 @@ if __name__ == "__main__":
     
 # D:\project\waibao\what-rubbish-final\app\src\main\java\com\bn\tl\anzhi
 
-    backup_proj_src(proj_path = proj_path,dst_path=dst_path)
+    # backup_proj_src(proj_path = proj_path,dst_path=dst_path)
+
+    # path=r"G:\file\学校"
+    # path=r"G:\file\1-210524153I0"
+    # path=r"G:\file"
+    # path=r"G:"
+    
+    file_lst=[]
+    like_str_lst=[]
+    ignore_dir_lst=["node_modules",".git",".gradle"]
+    # get_files_if(path, file_lst, like_str_lst, ignore_dir_lst)
+    # print("file_lst")
+    # print(file_lst)
+    # print_files(path)
+    out_str=""
+    res_list=[]
+    # make_files_str(path,out_str)
+    # print(out_str)
+    path=r"G:"
+    make_files_lst(path,res_list)
+    # print(res_list)
+    out_str+=path+"\n"
+    for i in res_list:
+        out_str+=i+"\n"
+    with open("findFileG.txt","w" ,encoding="utf-8") as f:
+        f.write(out_str)
+        
+
+
 
 

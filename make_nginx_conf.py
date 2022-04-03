@@ -2,6 +2,7 @@
 import os
 
 from myfile import make_dir_if_not_exists
+from top.starp.logger import Logger
 # port=8888
 # port="8889"
 # port="8890"
@@ -101,6 +102,9 @@ def kill_app(config):
     # java 杀完了
     return True
 
+
+logger = Logger(f'make_nginx_conf.py_{now_time_str}.log', level='debug')
+
 # 先把这个端口的nginx 杀掉
 config = Config()
 kill_app(config)
@@ -132,6 +136,12 @@ with open(out_path,"w",encoding="utf-8") as f:
 print("config write here",out_path)
 print(f"nginx_root_dir {nginx_root_dir}")
 print(f"port {port}")
+
+logger.logger.info(f"config write here {out_path}")
+logger.logger.info(f"nginx_root_dir {nginx_root_dir}")
+logger.logger.info(f"port {port}")
+# 加入log 
+logger.logger.info(f"start at starplatinumora.top:{port}")
 
 # os.system(f"mkdir {nginx_root_dir}")
 # make_dir_if_not_exists(nginx_root_dir)
