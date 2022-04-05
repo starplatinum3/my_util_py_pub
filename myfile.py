@@ -109,7 +109,7 @@ def make_files_lst(path,res_list,ignore_dir_lst):
             if i in ignore_dir_lst:
                 continue
             # print_files(os.path.join(path, i))
-            make_files_lst(os.path.join(path, i),res_list)
+            make_files_lst(os.path.join(path, i),res_list,ignore_dir_lst)
     files = [i for i in lsdir if os.path.isfile(os.path.join(path, i))]
     for f in files:
         abs_path = os.path.join(path, f)
@@ -1133,6 +1133,28 @@ def diff_encode_read(path):
             print("error",path)
             return None
 
+
+def find_files_test():
+    file_lst=[]
+    like_str_lst=[]
+    ignore_dir_lst=["node_modules",".git",".gradle"]
+    # get_files_if(path, file_lst, like_str_lst, ignore_dir_lst)
+    # print("file_lst")
+    # print(file_lst)
+    # print_files(path)
+    out_str=""
+    res_list=[]
+    # make_files_str(path,out_str)
+    # print(out_str)
+    path=r"G:"
+    make_files_lst(path,res_list)
+    # print(res_list)
+    out_str+=path+"\n"
+    for i in res_list:
+        out_str+=i+"\n"
+    with open("findFileG.txt","w" ,encoding="utf-8") as f:
+        f.write(out_str)
+
 if __name__ == "__main__":
     # get_file_names()
     # concat_vedios()
@@ -1283,8 +1305,11 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\waibao\whatRubbish2\rubbishDb"
     # dst_path = r"D:\proj\waibao\whatRubbish2\rubbishDbMultiMo"
 
-    proj_path = r"D:\proj\springboot\writer-new"
-    dst_path = r"D:\proj\springboot\party-import"
+    # proj_path = r"D:\proj\springboot\writer-new"
+    # dst_path = r"D:\proj\springboot\party-import"
+
+    proj_path = r"D:\school\vue\轻松学Vue3.0——刘兵\书中程序源码及项目\书中程序源码及项目\第6章\example6-综合案例和实验"
+    dst_path = r"D:\school\vue\lab6\code"
 
 
 
@@ -1292,32 +1317,32 @@ if __name__ == "__main__":
     
 # D:\project\waibao\what-rubbish-final\app\src\main\java\com\bn\tl\anzhi
 
-    # backup_proj_src(proj_path = proj_path,dst_path=dst_path)
+    backup_proj_src(proj_path = proj_path,dst_path=dst_path)
 
     # path=r"G:\file\学校"
     # path=r"G:\file\1-210524153I0"
     # path=r"G:\file"
     # path=r"G:"
     
-    file_lst=[]
-    like_str_lst=[]
-    ignore_dir_lst=["node_modules",".git",".gradle"]
-    # get_files_if(path, file_lst, like_str_lst, ignore_dir_lst)
-    # print("file_lst")
-    # print(file_lst)
-    # print_files(path)
-    out_str=""
-    res_list=[]
-    # make_files_str(path,out_str)
-    # print(out_str)
-    path=r"G:"
-    make_files_lst(path,res_list)
-    # print(res_list)
-    out_str+=path+"\n"
-    for i in res_list:
-        out_str+=i+"\n"
-    with open("findFileG.txt","w" ,encoding="utf-8") as f:
-        f.write(out_str)
+    # file_lst=[]
+    # like_str_lst=[]
+    # ignore_dir_lst=["node_modules",".git",".gradle"]
+    # # get_files_if(path, file_lst, like_str_lst, ignore_dir_lst)
+    # # print("file_lst")
+    # # print(file_lst)
+    # # print_files(path)
+    # out_str=""
+    # res_list=[]
+    # # make_files_str(path,out_str)
+    # # print(out_str)
+    # path=r"G:"
+    # make_files_lst(path,res_list)
+    # # print(res_list)
+    # out_str+=path+"\n"
+    # for i in res_list:
+    #     out_str+=i+"\n"
+    # with open("findFileG.txt","w" ,encoding="utf-8") as f:
+    #     f.write(out_str)
         
 
 
