@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 # import os
 # os.system('lsof -i:80')
 
@@ -29,6 +30,9 @@
 # 可以复制  cat log_时间_.log 这句命令， 用来查看运行log
 # 其实很多情况下他会显示端口已经被占用，但是只要第二次运行 python3 kill_java_and_nohup.py
 # 基本上就可以成功
+# [root@localhost app]# python nohup.py
+#   File "nohup.py", line 4
+# SyntaxError: Non-ASCII character '\xe5' in file nohup.py on line 4, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
 
 import os
 

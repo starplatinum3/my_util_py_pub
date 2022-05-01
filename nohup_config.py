@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 class Config():
     def __init__(self):
         # self.jar_name = "demo-0.0.1-SNAPSHOT.jar"
@@ -17,8 +18,14 @@ class Config():
         # self.jar_name = "/home/mqp/iot/mqp-iot-db-0.0.1-SNAPSHOT.jar"
         # self.port = "8899"
 
-        self.jar_name = "/home/mqp/imIo/im-1.0-SNAPSHOT.jar"
-        # self.port = "8080"
+        # self.jar_name = "/home/mqp/imIo/im-1.0-SNAPSHOT.jar"
+        # # self.port = "8080"
+        # self.port = "8889"
+
+        # self.jar_name = "/home/newDang/mqp-iot-db-0.0.1-SNAPSHOT.jar"
+        # self.port = "8889"
+
+        self.jar_name = "/home/sugon/app/verif_code-0.0.1-SNAPSHOT.jar"
         self.port = "8889"
 
         

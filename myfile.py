@@ -1308,10 +1308,56 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\springboot\writer-new"
     # dst_path = r"D:\proj\springboot\party-import"
 
-    proj_path = r"D:\school\vue\轻松学Vue3.0——刘兵\书中程序源码及项目\书中程序源码及项目\第6章\example6-综合案例和实验"
-    dst_path = r"D:\school\vue\lab6\code"
+    # proj_path = r"D:\school\vue\轻松学Vue3.0——刘兵\书中程序源码及项目\书中程序源码及项目\第6章\example6-综合案例和实验"
+    # dst_path = r"D:\school\vue\lab6\code"
+
+    # proj_path = r"D:\proj\springboot\iot-db"
+    # dst_path = r"D:\proj\springboot\party-ans"
+
+    # proj_path = r"D:\school\vue\3D-Banner"
+    # dst_path = r"D:\school\vue\Banner"
+
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第7章\实验轮播图"
+    # dst_path = r"D:\school\vue\lab7\code"
+
+    # proj_path = r"D:\school\spb\lab6-spb-jpa\JpaStu"
+    # dst_path = r"D:\proj\springboot\JpaStu"
+
+    # proj_path = r"D:\school\spb\lab6-spb-jpa\JpaStu"
+    # dst_path = r"D:\school\架构\lab7\MybatisStu"
+
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第8章\example8-1"
+    # dst_path = r"D:\school\vue\lab8\code"
+
+    # proj_path = r"D:\school\vue\lab8\code"
+    # dst_path = r"D:\school\vue\lab8\codeHtml"
+
+    # proj_path = r"D:\proj\zucc\writer-vue-new-private"
+    # dst_path = r"D:\proj\zucc\writer-vue-new-private2"
+
+    # proj_path = r"D:\proj\waibao\what-rubbish-final\what-rubbish-final"
+    # dst_path = r"D:\proj\zucc\writer-vue-new-private2"
+
+    # proj_path = r"D:\proj\springboot\iot-db"
+    # dst_path = r"D:\proj\springboot\verif_code"
+
+    # proj_path = r"D:\software\NFC_RFID集合版本身份证软解(V2.2-成功语音提示)\IDCard_Reader_NFC_Demo"
+    # dst_path = r"D:\proj\Android\verif_code_android"
+
+    # proj_path = r"D:\proj\springboot\L08RESTful"
+    # dst_path = r"D:\proj\springboot\L08RESTful-zj"
+
+    # proj_path = r"D:\private\bankedweb\bankedweb"
+    # dst_path = r"D:\proj\vue\vue-newfit"
+
+    # proj_path = r"D:\proj\springboot\37736springboot实战派代码\Spring-Boot-Book\10\JwtDemo"
+    # dst_path = r"D:\proj\springboot\stu-jwt"
+
+    proj_path = r"D:\proj\springboot\stu-jwt"
+    dst_path = r"D:\school\spb\lab9\stu-jwt"
 
 
+    
 
     
     

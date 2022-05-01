@@ -101,10 +101,16 @@ if __name__ == "__main__":
     # # dst_path=r"G:\project\Android\GameHall_Android2_bak3"
     # back_dir=r"G:\project\Android\GameHall_Android2_bak3"
 
-    root_dir=r"D:\project\waibao\what-rubbish-final\app\src\main\java\com\bn\tl\anzhi"
-    back_dir=r"D:\project\waibao\what-rubbish-final-bak\utf-8-2\app\src\main\java\com\bn\tl\anzhi"
+    # root_dir=r"D:\project\waibao\what-rubbish-final\app\src\main\java\com\bn\tl\anzhi"
+    # back_dir=r"D:\project\waibao\what-rubbish-final-bak\utf-8-2\app\src\main\java\com\bn\tl\anzhi"
+
+    # root_dir=r"G:\project\javaProj\lanqiao\src\lanqiao"
+    # back_dir=r"D:\lanqiaoCode"
+    root_dir=r"D:\proj\cpp\cs-system-principle"
+    back_dir=r"D:\proj\cpp\cs-system-principle-utf-8"
     # python 判断path 在不在
         # import os.path
+        
     if not os.path.exists(back_dir):
         print("没有备份目录，创建目录",back_dir)
         # os.mkdirs(back_dir)
@@ -115,7 +121,7 @@ if __name__ == "__main__":
     # os.mkdirs(back_dir)
     from_lst=[]
     to_lst=[]
-    ignore_dir_lst=[]
+    ignore_dir_lst=[".git"]
     re_lst=None
     # 全部都要
     get_src_dst_list_re(root_dir, back_dir, from_lst, to_lst,
@@ -138,6 +144,10 @@ if __name__ == "__main__":
         from_file=from_lst[i]
         to_file=to_lst[i]
         data=ReadFile(from_file)
+        if data==None:
+            with open(from_file,"r",encoding="utf-8") as f:
+                data=f.read()
+            # continue
         if data==None:
             continue
         WriteFile(to_file, data)

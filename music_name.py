@@ -3,6 +3,8 @@
 # D:\music>
 
 import os
+
+from sympy import python
 root_dir = r"D:\music"
 
 
@@ -40,6 +42,7 @@ import json
 def json_to_file(json_obj,filename):
     with open(filename, "w") as fp:
         json.dump(json_obj, fp)
+        # str to json python
 
 # json_to_file(id_list,"id_list.json")
 
