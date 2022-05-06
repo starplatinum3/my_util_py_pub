@@ -80,7 +80,14 @@ def ReadDirectoryFile(rootdir,end_with_list,out_root):
 end_with_list=[".cpp",".java"]
 
 # import myfile
-from myfile import backup_proj_src,get_src_dst_list_re
+from myfile import backup_proj_src, copyfile_lst,get_src_dst_list_re
+
+# from pathlib import Path
+
+# path1 = Path(r"C:\folder\subfolder\myfile.txt")
+# path2 = Path(r"C:\Myfile.txt")
+# print(path1.parent)
+# print(path2.parent)
 
 if __name__ == "__main__":
     # ReadDirectoryFile(".")
@@ -106,8 +113,11 @@ if __name__ == "__main__":
 
     # root_dir=r"G:\project\javaProj\lanqiao\src\lanqiao"
     # back_dir=r"D:\lanqiaoCode"
-    root_dir=r"D:\proj\cpp\cs-system-principle"
-    back_dir=r"D:\proj\cpp\cs-system-principle-utf-8"
+    # root_dir=r"D:\proj\cpp\cs-system-principle"
+    # back_dir=r"D:\proj\cpp\cs-system-principle-utf-8"
+
+    root_dir=r"D:\proj\compile\SchoolCode"
+    back_dir=r"D:\proj\compile\SchoolCode-utf8"
     # python 判断path 在不在
         # import os.path
         
@@ -127,6 +137,10 @@ if __name__ == "__main__":
     get_src_dst_list_re(root_dir, back_dir, from_lst, to_lst,
                         ignore_dir_lst, re_lst)
     # backup_proj_src(root_dir,back_dir)
+    # 先备份 有了文件
+    print("root_dir",root_dir)
+    print("back_dir",back_dir)
+    copyfile_lst(from_lst,to_lst)
 
     print("from_lst",from_lst)
     print("to_lst",to_lst)
@@ -150,6 +164,15 @@ if __name__ == "__main__":
             # continue
         if data==None:
             continue
+        # path1 = Path(to_file)
+        # to_file.
+        # dir=to_file.split("\\")[0:-1].join("\\")
+        # print("dir",dir)
+        # python 文件的父目录 路径
+        # if not os.path.exists(to_file):
+        #     print("没有目录，创建目录",to_file)
+ 
+        #     os.makedirs(to_file)
         WriteFile(to_file, data)
     
     # print("备份在",back_dir)

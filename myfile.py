@@ -927,7 +927,8 @@ def copyfile_lst(src_lst, dst_lst):
         idx += 1
 
 
-def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"G:\project\react\AwesomeBasketball"):
+def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"G:\project\react\AwesomeBasketball"
+,ignore_dir_lst = ["dist", "node_modules", ".git", ".idea","out","target","build","backup","sql","release","unpackage"]):
     # proj_path = r"G:\project\springbootProj\writer\writer-vue-new\writer-vue-new"
     # proj_path = r"G:\project\springbootProj\writer-new2\writer-new"
     # proj_path = r"G:\project\Android\LoginApplication\LoginApplication"
@@ -1062,7 +1063,7 @@ def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"
     # dst_path = r"G:\project\javaProj\gaoji_back"
     file_lst = []
     dst_lst = []
-    ignore_dir_lst = ["dist", "node_modules", ".git", ".idea","out","target","build","backup","sql","release"]
+    # ignore_dir_lst = ["dist", "node_modules", ".git", ".idea","out","target","build","backup","sql","release"]
 
     ignore_filename_lst = ["dist (5).zip"]
     # re_lst = ["\.java$"]
@@ -1353,8 +1354,23 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\springboot\37736springboot实战派代码\Spring-Boot-Book\10\JwtDemo"
     # dst_path = r"D:\proj\springboot\stu-jwt"
 
-    proj_path = r"D:\proj\springboot\stu-jwt"
-    dst_path = r"D:\school\spb\lab9\stu-jwt"
+    # proj_path = r"D:\proj\springboot\stu-jwt"
+    # dst_path = r"D:\school\spb\lab9\stu-jwt"
+
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第10章\example10-2"
+    # dst_path = r"D:\school\vue\lab10\axios-test-vue"
+
+    # proj_path = r"D:\proj\node\egg-demon\egg-demon"
+    # dst_path = r"D:\school\vue\lab10\axios-test-egg"
+
+    # proj_path = r"D:\proj\vue\网易云音乐项目代码\musicapp24-32"
+    # dst_path = r"D:\school\vue\music\netEaseMusic"
+
+    # proj_path = r"D:\proj\springboot\37736springboot实战派代码\Spring-Boot-Book\11\JpaArticleRedisDemo"
+    # dst_path = r"D:\school\spb\lab10\JpaArticleRedisDemo"
+
+    proj_path = r"D:\proj\vue\0.32-iView（色盲）\0.32-iView"
+    dst_path = r"D:\proj\vue\iView-032"
 
 
     
