@@ -1275,8 +1275,26 @@ if __name__ == "__main__":
     # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第4章\example4"
     # dst_path = r"D:\school\vue\lab4\code"
 
-    proj_path = r"D:\proj\springBoot\zj4-3-1"
-    dst_path = r"D:\proj\springBoot\zj4-3-1_to"
+    # proj_path = r"D:\proj\springBoot\zj4-3-1"
+    # dst_path = r"D:\proj\springBoot\zj4-3-1_to"
+
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第5章\example5-1"
+    # dst_path = r"D:\school\vue\lab5\code"
+
+    # proj_path = r"D:\school\spb\Spring-Boot-Book\08\JpaArticleDemo"
+    # dst_path = r"D:\school\spb\lab6\JpaArticleDemo"
+
+    # proj_path = r"D:\school\spb\lab3\L03ThymeleafDemo"
+    # dst_path = r"D:\school\spb\lab6\JpaStu"
+
+    # proj_path = r"D:\proj\android\compx202-assignment4_"
+    # dst_path = r"D:\proj\android\compx202-assignment4"
+
+    # proj_path = r"D:\proj\android\compx202-assignment4"
+    # dst_path = r"D:\school\android\compx202-assignment4"
+
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第9章\example9-1"
+    # dst_path = r"D:\school\vue\lab9\code"
 
 
 
@@ -1284,6 +1302,37 @@ if __name__ == "__main__":
     
 # D:\project\waibao\what-rubbish-final\app\src\main\java\com\bn\tl\anzhi
 
-    backup_proj_src(proj_path = proj_path,dst_path=dst_path)
+    # backup_proj_src(proj_path = proj_path,dst_path=dst_path)
+
+    file_lst = []
+    dst_lst = []
+    ignore_dir_lst = ["dist", "node_modules", ".git", ".idea","out","target","build","backup","sql","release"]
+
+    ignore_filename_lst = ["dist (5).zip"]
+    # re_lst = ["\.java$","\.cs$","\.csproj$"]
+    re_lst = None
+    # src_dir=r"D:\proj\cSharp\NewDang-4.26"
+    # dst_dir=r"D:\proj\cSharp\NewDang-4.26-2"
+
+    # src_dir=r"D:\school\spb\lab10\实验10+31901077+缪奇鹏\JpaStu-redis"
+    # dst_dir=r"D:\school\spb\lab11\JpaStu-rabmq"
+
+    # src_dir=r"D:\school\spb\Spring-Boot-Book\12\Rabbitmq_TopicDemo"
+    # dst_dir=r"D:\school\spb\lab11\Rabbitmq_TopicDemo"
+
+    # src_dir=r"D:\proj\springBoot\iot-db"
+    # dst_dir=r"D:\proj\java\mqtt-control"
+
+    src_dir=r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第11章\example11"
+    dst_dir=r"D:\school\vue\lab11\phone-page"
+
+    # get_src_dst_list_re(proj_path, dst_path, file_lst, dst_lst,
+    #                     ignore_dir_lst, re_lst)
+    get_src_dst_list_re(src_dir, dst_dir, file_lst, dst_lst,
+        ignore_dir_lst, re_lst)
+    print("file_lst", file_lst)
+    print("dst_lst", dst_lst)
+    copyfile_lst(file_lst,dst_lst)
+    print("back up at",dst_dir)
 
 
