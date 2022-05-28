@@ -30,38 +30,38 @@
 # 可以复制  cat log_时间_.log 这句命令， 用来查看运行log
 # 其实很多情况下他会显示端口已经被占用，但是只要第二次运行 python3 kill_java_and_nohup.py
 # 基本上就可以成功
-# [root@localhost app]# python nohup.py
-#   File "nohup.py", line 4
-# SyntaxError: Non-ASCII character '\xe5' in file nohup.py on line 4, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
 
 import os
 
 import time
 
+from nohup_config import Config
 
-class Config():
-    def __init__(self):
-        # self.jar_name = "demo-0.0.1-SNAPSHOT.jar"
-        # # self.jar_name = "sys-writer-web-0.0.1-SNAPSHOT.jar"
-        # self.log_file_name_templete = "log_{}.log"
-        # # self.port="80"
-        # # self.port = "8088"
-        # self.port = "8080"
-        # # self.sudo = "sudo "
-        # self.sudo=" "
-        # # sudo 后面最好有个空格
+# Config
 
-        # self.jar_name = "/home/mqp/whatRubbish-0.0.1-SNAPSHOT.jar"
-        # self.log_file_name_templete = "log_{}.log"
-        # self.port = "8889"
+# class Config():
+#     def __init__(self):
+#         # self.jar_name = "demo-0.0.1-SNAPSHOT.jar"
+#         # # self.jar_name = "sys-writer-web-0.0.1-SNAPSHOT.jar"
+#         # self.log_file_name_templete = "log_{}.log"
+#         # # self.port="80"
+#         # # self.port = "8088"
+#         # self.port = "8080"
+#         # # self.sudo = "sudo "
+#         # self.sudo=" "
+#         # # sudo 后面最好有个空格
 
-        self.jar_name = "/home/mqp/iot/mqp-iot-db-0.0.1-SNAPSHOT.jar"
-        self.log_file_name_templete = "log_{}.log"
-        self.port = "8899"
-        # self.jar_name = "pz-blog-1.0.jar"
-        # self.log_file_name_templete = "log_{}.log"
-        # self.port = "8085"
-        self.sudo=" "
+#         # self.jar_name = "/home/mqp/whatRubbish-0.0.1-SNAPSHOT.jar"
+#         # self.log_file_name_templete = "log_{}.log"
+#         # self.port = "8889"
+
+#         self.jar_name = "/home/mqp/iot/mqp-iot-db-0.0.1-SNAPSHOT.jar"
+#         self.log_file_name_templete = "log_{}.log"
+#         self.port = "8899"
+#         # self.jar_name = "pz-blog-1.0.jar"
+#         # self.log_file_name_templete = "log_{}.log"
+#         # self.port = "8085"
+#         self.sudo=" "
 
         
 
@@ -91,7 +91,8 @@ def kill_java(config):
     # java 杀完了
     return True
 
-def nohup(config):
+
+def nohup_app(config):
     jar_name = config.jar_name
 
     print("nohup java -jar")
@@ -115,6 +116,7 @@ def nohup(config):
     # print(out)
     # print("log_file_name: ", log_file_name)
     print("cmd : cat ", log_file_name)
+
 
 def kill_java_and_nohup(config):
     # port="80"
@@ -204,7 +206,9 @@ def create_version_txt():
 
 # create_version_txt()
 config = Config()
-kill_java_and_nohup(config)
+# kill_java_and_nohup(config)
+
+nohup_app(config)
 
 # line="java       659243 root   20u  IPv6 57698716      0t0  TCP *:http (LISTEN)"
 # # sps=line.split(" ")

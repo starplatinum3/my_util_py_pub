@@ -50,13 +50,15 @@ class Config():
         # self.jar_name = "/home/mqp/whatRubbish-0.0.1-SNAPSHOT.jar"
         # self.log_file_name_templete = "log_{}.log"
         # self.port = "8889"
-
-        self.jar_name = "/home/mqp/iot/mqp-iot-db-0.0.1-SNAPSHOT.jar"
         self.log_file_name_templete = "log_{}.log"
-        self.port = "8899"
+        # self.jar_name = "/home/mqp/iot/mqp-iot-db-0.0.1-SNAPSHOT.jar"
+        # self.port = "8899"
         # self.jar_name = "pz-blog-1.0.jar"
         # self.log_file_name_templete = "log_{}.log"
         # self.port = "8085"
+
+        self.jar_name = "sys-writer-web-0.0.1-SNAPSHOT.jar"
+        self.port = "8088"
         self.sudo=" "
 
         

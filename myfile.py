@@ -87,7 +87,37 @@ def print_files(path):
     for f in files:
         print(os.path.join(path, f))
 
+def make_files_str(path,out_str):
+    lsdir = os.listdir(path)
+    dirs = [i for i in lsdir if os.path.isdir(os.path.join(path, i))]
+    if dirs:
+        for i in dirs:
+            print_files(os.path.join(path, i))
+    files = [i for i in lsdir if os.path.isfile(os.path.join(path, i))]
+    for f in files:
+        abs_path = os.path.join(path, f)
+        # print(os.path.join(path, f))
+        out_str+=abs_path+"\n"
 
+def make_files_lst(path,res_list,ignore_dir_lst):
+    try:
+        lsdir = os.listdir(path)
+    except Exception as e:
+        print(e)
+        return
+    dirs = [i for i in lsdir if os.path.isdir(os.path.join(path, i))]
+    if dirs:
+        for i in dirs:
+            if i in ignore_dir_lst:
+                continue
+            # print_files(os.path.join(path, i))
+            make_files_lst(os.path.join(path, i),res_list,ignore_dir_lst)
+    files = [i for i in lsdir if os.path.isfile(os.path.join(path, i))]
+    for f in files:
+        abs_path = os.path.join(path, f)
+        # print(os.path.join(path, f))
+        # out_str+=abs_path+"\n"
+        res_list.append(abs_path)
 # def print_files_if(path, cond_func):
 #     lsdir = os.listdir(path)
 #     dirs = [i for i in lsdir if os.path.isdir(os.path.join(path, i))]
@@ -123,10 +153,10 @@ def back_up_and_write(path,data):
     # copy()
     print("back_path",back_path)
     os.rename(path, back_path)
-    
+
     with open(path,"w") as f:
         f.write(data)
-    
+
 
 # def get_files_if(path, file_lst: list, cond_func, **kwargs):
 #     lsdir = os.listdir(path)
@@ -153,7 +183,7 @@ def back_up_and_write(path,data):
 #             print(abs_path)
 #             file_lst.append(abs_path)
 
-
+# 不是纯函数啊
 def get_files_if(path, file_lst: list, like_str_lst: list, ignore_dir_lst: list):
     lsdir = os.listdir(path)
     dirs = [i for i in lsdir if os.path.isdir(os.path.join(path, i))]
@@ -296,7 +326,7 @@ def get_src_dst_list(src, dst, src_lst: list, dst_lst: list,
             dst_lst.append(abs_path_dst)
         idx += 1
 
-
+# 放到list re_lst 是类似他的
 def get_src_dst_list_re(src, dst, src_lst: list, dst_lst: list,
                         ignore_dir_lst: list, re_lst):
     lsdir = os.listdir(src)
@@ -547,7 +577,7 @@ def cmd():
     # //进行视频的合并
     # ffmpeg -f concat -i list.txt -c copy concat.mp4
     # https://www.cnblogs.com/qican/p/11468866.html
-    :return: 
+    :return:
     """
 
     cut_start_time = ""
@@ -591,7 +621,7 @@ def absolute_mkdir(dir_name):
 def make_dir_if_not_exists(dir):
     if os.path.exists(dir):
         return
-    # pyton  mkdri 
+    # pyton  mkdri
     print("创建目录 ",dir)
     os.mkdir(dir)
 
@@ -755,7 +785,7 @@ def rename_zip_and_copy_one_dir(abs_path, out_dir, name):
         if file.startswith("31901077"):
             if "111" in file:
                 continue
-           
+
             out_file = os.path.join(out_dir, name + ".zip")
             src_file = os.path.join(abs_path, file)
             copyfile(src_file, out_file)
@@ -910,15 +940,16 @@ def copyfile_lst(src_lst, dst_lst):
         idx += 1
 
 
-def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"G:\project\react\AwesomeBasketball"):
+def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"G:\project\react\AwesomeBasketball"
+,ignore_dir_lst = ["dist", "node_modules", ".git", ".idea","out","target","build","backup","sql","release","unpackage"]):
     # proj_path = r"G:\project\springbootProj\writer\writer-vue-new\writer-vue-new"
     # proj_path = r"G:\project\springbootProj\writer-new2\writer-new"
     # proj_path = r"G:\project\Android\LoginApplication\LoginApplication"
     # proj_path = r"G:\project\Android\AccountingMainLayoutSteps"
     # proj_path = r"G:\project\Android\moments"
     # proj_path = r"G:\project\springbootProj\kinect3"
-    
-    
+
+
     # proj_path = r"G:\project\javaProj\gaoji"
     # dst_path = r"G:\考公"
     # dst_path = r"G:\project\springbootProj\writer-new2\backup2021年10月10日153506"
@@ -934,7 +965,7 @@ def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"
 
     # proj_path = r"G:\project\Android\LoginApplication\handout\loginApllication"
     # dst_path = r"G:\project\Android\LoginApplicationX2"
-    
+
     # proj_path = r"G:\project\Android\LoginApplication\handout\loginApllication"
     # dst_path = r"G:\project\Android\backup\LoginApplicationV7"
 
@@ -945,7 +976,7 @@ def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"
 
     # proj_path = r"G:\project\Android\moments"
     # dst_path = r"G:\project\Android\moments_sensen"
-    
+
     # proj_path = r"G:\project\Android\moments"
     # dst_path = r"D:\project\android\moments"
 
@@ -961,7 +992,7 @@ def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"
 
     # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
     # dst_path = r"D:\什么垃圾\备份\what-rubbish-private-sjc_add_color"
-    
+
     # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
     # dst_path = r"D:\什么垃圾\备份\what-rubbish-private-register_cant_find"
 
@@ -981,7 +1012,7 @@ def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"
 
     # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
     # dst_path = r"D:\proj\waibao\whatRubbish2\代码注释删除之前"
-    
+
     # proj_path = r"D:\proj\wx\temp_wx"
     # dst_path = r"D:\school\iot\大作业\微信小程序"
 
@@ -1034,18 +1065,18 @@ def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"
     # dst_path = r"D:\proj\Android\physics_ball_rolling_game"
 
     # 安卓物理小球滚动游戏源码
-    
+
 
     # proj_path = r"G:\project\react\AwesomeProject"
     # dst_path = r"G:\project\react\AwesomeBasketball"
-    
 
-    
-    
+
+
+
     # dst_path = r"G:\project\javaProj\gaoji_back"
     file_lst = []
     dst_lst = []
-    ignore_dir_lst = ["dist", "node_modules", ".git", ".idea","out","target","build","backup","sql","release"]
+    # ignore_dir_lst = ["dist", "node_modules", ".git", ".idea","out","target","build","backup","sql","release"]
 
     ignore_filename_lst = ["dist (5).zip"]
     # re_lst = ["\.java$"]
@@ -1116,6 +1147,28 @@ def diff_encode_read(path):
             print("error",path)
             return None
 
+
+def find_files_test():
+    file_lst=[]
+    like_str_lst=[]
+    ignore_dir_lst=["node_modules",".git",".gradle"]
+    # get_files_if(path, file_lst, like_str_lst, ignore_dir_lst)
+    # print("file_lst")
+    # print(file_lst)
+    # print_files(path)
+    out_str=""
+    res_list=[]
+    # make_files_str(path,out_str)
+    # print(out_str)
+    path=r"G:"
+    make_files_lst(path,res_list)
+    # print(res_list)
+    out_str+=path+"\n"
+    for i in res_list:
+        out_str+=i+"\n"
+    with open("findFileG.txt","w" ,encoding="utf-8") as f:
+        f.write(out_str)
+
 if __name__ == "__main__":
     # get_file_names()
     # concat_vedios()
@@ -1168,13 +1221,13 @@ if __name__ == "__main__":
     # download_img(url_pic,"code",".jpg","imgs")
     # search_path = r"D:\project\javaProj\oppHomework"
     search_path = r"G:\file\学校\zju-icicles-master"
-    
+
     # print_files_if_name_like(search_path,like_what="sjc")
     personal_words = []
     # print_files_if_name_like_ignore_case(search_path,like_what=".zip")
     # code_path = r"G:\project\pythonProj\my_util"
     code_path = r"G:\file\学校\Android\lab6\moments"
-    
+
     # print_files_if_size_with_unit(code_path,1,"MB")
 #     G:\file\学校\Android\lab6\moments\.gradle\6.1.1\executionHistory\executionHistory.bin
 # size: 1874280 B,  1874.28 KB,  1.87428 MB
@@ -1246,7 +1299,7 @@ if __name__ == "__main__":
     # dst_path = r"D:\school\vue\demo3"
     # print("1")
 
-    
+
 
     # proj_path = r"D:\proj\node\egg-demon\egg-demon"
     # dst_path = r"D:\proj\node\git-cache-egg-pub"
@@ -1296,43 +1349,134 @@ if __name__ == "__main__":
     # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第9章\example9-1"
     # dst_path = r"D:\school\vue\lab9\code"
 
+    # proj_path = r"D:\school\spb\lab3\L03ThymeleafDemo"
+    # dst_path = r"D:\school\spb\lab3\L03ThymeleafDemoCode"
+
+    # proj_path = r"D:\proj\vue\V-IM\V-IM-Server"
+    # dst_path = r"D:\proj\springboot\V-IM-Server"
+
+    # proj_path = r"D:\proj\waibao\whatRubbish2\rubbishDb"
+    # dst_path = r"D:\proj\waibao\whatRubbish2\rubbishDbMultiMo"
+
+    # proj_path = r"D:\proj\springboot\writer-new"
+    # dst_path = r"D:\proj\springboot\party-import"
+
+    # proj_path = r"D:\school\vue\轻松学Vue3.0——刘兵\书中程序源码及项目\书中程序源码及项目\第6章\example6-综合案例和实验"
+    # dst_path = r"D:\school\vue\lab6\code"
+
+    # proj_path = r"D:\proj\springboot\iot-db"
+    # dst_path = r"D:\proj\springboot\party-ans"
+
+    # proj_path = r"D:\school\vue\3D-Banner"
+    # dst_path = r"D:\school\vue\Banner"
+
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第7章\实验轮播图"
+    # dst_path = r"D:\school\vue\lab7\code"
+
+    # proj_path = r"D:\school\spb\lab6-spb-jpa\JpaStu"
+    # dst_path = r"D:\proj\springboot\JpaStu"
+
+    # proj_path = r"D:\school\spb\lab6-spb-jpa\JpaStu"
+    # dst_path = r"D:\school\架构\lab7\MybatisStu"
+
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第8章\example8-1"
+    # dst_path = r"D:\school\vue\lab8\code"
+
+    # proj_path = r"D:\school\vue\lab8\code"
+    # dst_path = r"D:\school\vue\lab8\codeHtml"
+
+    # proj_path = r"D:\proj\zucc\writer-vue-new-private"
+    # dst_path = r"D:\proj\zucc\writer-vue-new-private2"
+
+    # proj_path = r"D:\proj\waibao\what-rubbish-final\what-rubbish-final"
+    # dst_path = r"D:\proj\zucc\writer-vue-new-private2"
+
+    # proj_path = r"D:\proj\springboot\iot-db"
+    # dst_path = r"D:\proj\springboot\verif_code"
+
+    # proj_path = r"D:\software\NFC_RFID集合版本身份证软解(V2.2-成功语音提示)\IDCard_Reader_NFC_Demo"
+    # dst_path = r"D:\proj\Android\verif_code_android"
+
+    # proj_path = r"D:\proj\springboot\L08RESTful"
+    # dst_path = r"D:\proj\springboot\L08RESTful-zj"
+
+    # proj_path = r"D:\private\bankedweb\bankedweb"
+    # dst_path = r"D:\proj\vue\vue-newfit"
+
+    # proj_path = r"D:\proj\springboot\37736springboot实战派代码\Spring-Boot-Book\10\JwtDemo"
+    # dst_path = r"D:\proj\springboot\stu-jwt"
+
+    # proj_path = r"D:\proj\springboot\stu-jwt"
+    # dst_path = r"D:\school\spb\lab9\stu-jwt"
+
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第10章\example10-2"
+    # dst_path = r"D:\school\vue\lab10\axios-test-vue"
+
+    # proj_path = r"D:\proj\node\egg-demon\egg-demon"
+    # dst_path = r"D:\school\vue\lab10\axios-test-egg"
+
+    # proj_path = r"D:\proj\vue\网易云音乐项目代码\musicapp24-32"
+    # dst_path = r"D:\school\vue\music\netEaseMusic"
+
+    # proj_path = r"D:\proj\springboot\37736springboot实战派代码\Spring-Boot-Book\11\JpaArticleRedisDemo"
+    # dst_path = r"D:\school\spb\lab10\JpaArticleRedisDemo"
+
+    # proj_path = r"D:\proj\vue\0.32-iView（色盲）\0.32-iView"
+    # dst_path = r"D:\proj\vue\iView-032"
+
+    # proj_path = r"D:\private\writer-private"
+    # dst_path = r"D:\private\party-school"
+
+    # proj_path = r"D:\school\node\lab12.nodejs"
+    # dst_path = r"D:\school\node\lab12.nodejs-no-mod"
+
+    # proj_path = r"D:\proj\vue\vue3-zhihu-ts2"
+    # dst_path = r"D:\proj\vue\vue-material-phone"
+
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第11章\example11"
+    # dst_path = r"D:\proj\vue\vue-material-phone-js"
+
+    # proj_path = r"D:\proj\vue\vue-material-phone-js"
+    # dst_path = r"D:\school\vue\lab12-material\vue-material-phone-js-handout"
+
+    proj_path = r"D:\proj\vue\writer-vue-new-private"
+    dst_path = r"D:\private\party-school-vue"
+# D:\private\party-school
 
 
-    
-    
+
+
+
 # D:\project\waibao\what-rubbish-final\app\src\main\java\com\bn\tl\anzhi
 
-    # backup_proj_src(proj_path = proj_path,dst_path=dst_path)
+    backup_proj_src(proj_path = proj_path,dst_path=dst_path)
 
-    file_lst = []
-    dst_lst = []
-    ignore_dir_lst = ["dist", "node_modules", ".git", ".idea","out","target","build","backup","sql","release"]
+    # path=r"G:\file\学校"
+    # path=r"G:\file\1-210524153I0"
+    # path=r"G:\file"
+    # path=r"G:"
 
-    ignore_filename_lst = ["dist (5).zip"]
-    # re_lst = ["\.java$","\.cs$","\.csproj$"]
-    re_lst = None
-    # src_dir=r"D:\proj\cSharp\NewDang-4.26"
-    # dst_dir=r"D:\proj\cSharp\NewDang-4.26-2"
+    # file_lst=[]
+    # like_str_lst=[]
+    # ignore_dir_lst=["node_modules",".git",".gradle"]
+    # # get_files_if(path, file_lst, like_str_lst, ignore_dir_lst)
+    # # print("file_lst")
+    # # print(file_lst)
+    # # print_files(path)
+    # out_str=""
+    # res_list=[]
+    # # make_files_str(path,out_str)
+    # # print(out_str)
+    # path=r"G:"
+    # make_files_lst(path,res_list)
+    # # print(res_list)
+    # out_str+=path+"\n"
+    # for i in res_list:
+    #     out_str+=i+"\n"
+    # with open("findFileG.txt","w" ,encoding="utf-8") as f:
+    #     f.write(out_str)
 
-    # src_dir=r"D:\school\spb\lab10\实验10+31901077+缪奇鹏\JpaStu-redis"
-    # dst_dir=r"D:\school\spb\lab11\JpaStu-rabmq"
 
-    # src_dir=r"D:\school\spb\Spring-Boot-Book\12\Rabbitmq_TopicDemo"
-    # dst_dir=r"D:\school\spb\lab11\Rabbitmq_TopicDemo"
 
-    # src_dir=r"D:\proj\springBoot\iot-db"
-    # dst_dir=r"D:\proj\java\mqtt-control"
-
-    src_dir=r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第11章\example11"
-    dst_dir=r"D:\school\vue\lab11\phone-page"
-
-    # get_src_dst_list_re(proj_path, dst_path, file_lst, dst_lst,
-    #                     ignore_dir_lst, re_lst)
-    get_src_dst_list_re(src_dir, dst_dir, file_lst, dst_lst,
-        ignore_dir_lst, re_lst)
-    print("file_lst", file_lst)
-    print("dst_lst", dst_lst)
-    copyfile_lst(file_lst,dst_lst)
-    print("back up at",dst_dir)
 
 

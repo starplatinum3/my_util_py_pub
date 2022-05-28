@@ -25,3 +25,5 @@ def printLstMarked(lst,markedIndexes):
         else:
             print(f"{val}",end=" ")
     print()
+
+# print("2")

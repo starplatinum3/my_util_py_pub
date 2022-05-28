@@ -9,29 +9,31 @@ repository_root_dir=r"D:\什么垃圾\repository"
 gen_root_dir=r"D:\什么垃圾\gen"
 package_name="com.example.whatrubbish"
 
+# clsNames="""
+# Article
+# Basket
+# Card
+# CardGame
+# City
+# ColeFragGameNow
+# ColeFragGameStat
+# Friendship
+# Game
+# GameHonor
+# GameRecord
+# Place
+# Present
+# PsnExchgRec
+# Rubbish
+# RubbishType
+# RubTyCoresp
+# ShootGame
+# SignInHonor
+# SignInStd
+# User
+# WikiHistory"""
 clsNames="""
-Article
-Basket
-Card
-CardGame
-City
-ColeFragGameNow
-ColeFragGameStat
-Friendship
-Game
-GameHonor
-GameRecord
-Place
-Present
-PsnExchgRec
-Rubbish
-RubbishType
-RubTyCoresp
-ShootGame
-SignInHonor
-SignInStd
-User
-WikiHistory"""
+RecMsg"""
 
 ############# config ############# 
 

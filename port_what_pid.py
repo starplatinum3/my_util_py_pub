@@ -6,7 +6,8 @@ import argparse
 import os
 
 netstat="netstat -antup |grep  "
-port ="13693"
+# port ="13693"
+port ="8889"
 pid="13693"
 
 #  netstat -antup |grep  13693

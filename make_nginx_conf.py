@@ -2,6 +2,7 @@
 import os
 
 from myfile import make_dir_if_not_exists
+from top.starp.logger import Logger
 # port=8888
 # port="8889"
 # port="8890"
@@ -9,7 +10,8 @@ from myfile import make_dir_if_not_exists
 ################ config #####################
 # 配置 html 静态文件的位置
 # root_path="/home/mqp/wx-sorting_build"
-root_path="/home/mqp/gitCacheVue/dist/dist"
+# root_path="/home/mqp/gitCacheVue/dist/dist"
+root_path="/home/mqp/imFront/dist"
 
 #/home/mqp/wx-sorting_build_web_desktop
 do_unzip=False
@@ -51,11 +53,21 @@ class Config():
         # self.port = "8085"
         self.sudo=" "
         self.kill_app_name="nginx"
-        self.port="8086"
+        # self.port="8086"
+        # im 前端
+        self.port="8087"
 
 
 ################ config #####################
 
+import time_util
+
+now_time_str= time_util.get_now_time_str()
+
+def move_dist():
+    os.system(f"mv   dist    dist_{now_time_str}/")
+    os.system(f"unzip  -o   /home/pi/writer/dist_admin_this.zip   -d  dist/")
+    
 
 def kill_app_line(line, config):
     print("kill_app_line")
@@ -90,6 +102,9 @@ def kill_app(config):
     # java 杀完了
     return True
 
+
+logger = Logger(f'make_nginx_conf.py_{now_time_str}.log', level='debug')
+
 # 先把这个端口的nginx 杀掉
 config = Config()
 kill_app(config)
@@ -121,6 +136,12 @@ with open(out_path,"w",encoding="utf-8") as f:
 print("config write here",out_path)
 print(f"nginx_root_dir {nginx_root_dir}")
 print(f"port {port}")
+
+logger.logger.info(f"config write here {out_path}")
+logger.logger.info(f"nginx_root_dir {nginx_root_dir}")
+logger.logger.info(f"port {port}")
+# 加入log 
+logger.logger.info(f"start at starplatinumora.top:{port}")
 
 # os.system(f"mkdir {nginx_root_dir}")
 # make_dir_if_not_exists(nginx_root_dir)
