@@ -1439,8 +1439,12 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\vue\vue-material-phone-js"
     # dst_path = r"D:\school\vue\lab12-material\vue-material-phone-js-handout"
 
-    proj_path = r"D:\proj\vue\writer-vue-new-private"
-    dst_path = r"D:\private\party-school-vue"
+    # proj_path = r"D:\proj\vue\writer-vue-new-private"
+    # dst_path = r"D:\private\party-school-vue"
+
+    proj_path = r"D:\proj\vue\vue3-zhihu-ts2"
+    dst_path = r"D:\school\vue\大作业\vue3-zhihu-ts2"
+    # D:\school\vue\大作业
 # D:\private\party-school
 
 
