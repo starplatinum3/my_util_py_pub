@@ -941,7 +941,8 @@ def copyfile_lst(src_lst, dst_lst):
 
 
 def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"G:\project\react\AwesomeBasketball"
-,ignore_dir_lst = ["dist", "node_modules", ".git", ".idea","out","target","build","backup","sql","release","unpackage"]):
+,ignore_dir_lst = ["dist", "node_modules", ".git", ".idea","out","target","build","backup","sql","release",
+"unpackage","htmlStable"]):
     # proj_path = r"G:\project\springbootProj\writer\writer-vue-new\writer-vue-new"
     # proj_path = r"G:\project\springbootProj\writer-new2\writer-new"
     # proj_path = r"G:\project\Android\LoginApplication\LoginApplication"
@@ -1442,11 +1443,20 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\vue\writer-vue-new-private"
     # dst_path = r"D:\private\party-school-vue"
 
-    proj_path = r"D:\proj\vue\vue3-zhihu-ts2"
-    dst_path = r"D:\school\vue\大作业\vue3-zhihu-ts2"
+    # proj_path = r"D:\proj\vue\vue3-zhihu-ts2"
+    # dst_path = r"D:\school\vue\大作业\vue3-zhihu-ts2"
     # D:\school\vue\大作业
 # D:\private\party-school
+    
 
+    # proj_path = r"D:\proj\springBoot\miaosha"
+    # dst_path = r"D:\proj\springBoot\miaoshaBackAsync"
+
+    # proj_path = r"D:\proj\springBoot\miaosha"
+    # dst_path = r"D:\proj\springBoot\miaoshaBackDev"
+
+    proj_path = r"D:\proj\springBoot\miaosha"
+    dst_path = r"D:\proj\springBoot\miaoshaBackGenMybatis"
 
 
 
