@@ -1455,8 +1455,12 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\springBoot\miaosha"
     # dst_path = r"D:\proj\springBoot\miaoshaBackDev"
 
-    proj_path = r"D:\proj\springBoot\miaosha"
-    dst_path = r"D:\proj\springBoot\miaoshaBackGenMybatis"
+    # proj_path = r"D:\proj\springBoot\miaosha"
+    # dst_path = r"D:\proj\springBoot\miaoshaBackGenMybatis"
+
+    proj_path = r"D:\school\compile\plzoofs\microc"
+    dst_path = r"D:\school\compile\microcConflict"
+    # https://zhuanlan.zhihu.com/p/351878804
 
 
 

@@ -52,3 +52,5 @@ Traceback (most recent call last):
   File "D:\software\anaconda\lib\site-packages\pandas\core\groupby\generic.py", line 284, in _aggregate_multiple_funcs
     raise SpecificationError("nested renamer is not supported")
 pandas.core.base.SpecificationError: nested renamer is not supported
+
+python -m pip install peewee  -i https://pypi.tuna.tsinghua.edu.cn/simple
