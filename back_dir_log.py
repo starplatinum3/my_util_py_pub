@@ -10,8 +10,15 @@ from myfile import backup_proj_src
 # from_path=r"D:\proj\vue\vue3-zhihu-ts2"
 # to_path=r"D:\proj\vue\vue3-zhihu-ts2-back"
 
-from_path=r"D:\proj\android\verif_code_android"
-to_path=r"D:\proj\android\verif_code_android-out"
+# from_path=r"D:\proj\android\verif_code_android"
+# to_path=r"D:\proj\android\verif_code_android-out"
+
+# from_path=r"D:\proj\node\egg-demon\egg-demon"
+# to_path=r"D:\school\node\big\egg-git-cache"
+
+from_path=r"D:\proj\vue\git-cache-vue3"
+to_path=r"D:\school\node\big\git-cache-vue3"
+
 
 from peewee import *
 
@@ -37,7 +44,7 @@ class BackDirLog(Model):
     to_path= CharField()
     time = DateField()
     # id = IntegerField(primary_key=True)
-    # id = PrimaryKeyField()
+    id = PrimaryKeyField()
 
     class Meta:
         database = database
@@ -46,7 +53,7 @@ backup_proj_src(from_path,to_path)
 # 创建表
 # Person.create_table()
 print("创建表")
-# BackDirLog.create_table()
+BackDirLog.create_table()
 # 创建表也可以这样, 可以创建多个
 # database.create_tables([Person])
 
