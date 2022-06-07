@@ -1465,10 +1465,21 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\vue\vue3-zhihu-ts2"
     # dst_path = r"D:\school\vue\大作业\vue3-zhihu-ts-handout"
 
-    proj_path = r"D:\school\compile\plzoofs\microc"
-    dst_path = r"D:\school\compile\microc2"
+    # proj_path = r"D:\school\compile\plzoofs\microc"
+    # dst_path = r"D:\school\compile\microc2"
 
+    # proj_path = r"D:\proj\springBoot\miaosha"
+    # dst_path = r"D:\school\spb\big\secKillDb"
 
+    # proj_path = r"D:\proj\vue\vue_shop"
+    # dst_path = r"D:\school\spb\big\vue_shop"
+    # D:\proj\springBoot\miaosha\LICENSE
+    # C:\Windows\System32\cmd.exe
+
+    proj_path = r"D:\proj\vue\vite-project"
+    dst_path = r"D:\school\spb\big\sek-kill-vue-admin"
+
+    
 
 
 # D:\project\waibao\what-rubbish-final\app\src\main\java\com\bn\tl\anzhi

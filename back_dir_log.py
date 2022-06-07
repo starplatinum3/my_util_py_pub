@@ -3,6 +3,8 @@
 # from charset_normalizer import from_path
 from datetime import date
 import datetime
+
+# from sympy import python
 from myfile import backup_proj_src
 
 from_path=r"D:\proj\vue\vue3-zhihu-ts2"
@@ -26,6 +28,7 @@ class Person(Model):
         database = database
 # class back_dir_log
 
+# python 没有 init ，有类变量
 class BackDirLog(Model):
     from_path = CharField()
     to_path= CharField()
@@ -38,6 +41,7 @@ class BackDirLog(Model):
 # backup_proj_src(from_path,to_path)
 # 创建表
 # Person.create_table()
+print("创建表")
 BackDirLog.create_table()
 # 创建表也可以这样, 可以创建多个
 # database.create_tables([Person])
@@ -51,6 +55,9 @@ BackDirLog.create_table()
 # backDirLog = BackDirLog(from_path=from_path, to_path=to_path, time=date())
 backDirLog = BackDirLog(from_path=from_path, to_path=to_path, time= datetime.datetime.now())
 print("backDirLog",backDirLog)
+# backDirLog None
+# save
+# python new 对象
 # backDirLog None
 print("save")
 backDirLog.save()
