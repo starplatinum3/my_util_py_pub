@@ -7,9 +7,11 @@ import datetime
 # from sympy import python
 from myfile import backup_proj_src
 
-from_path=r"D:\proj\vue\vue3-zhihu-ts2"
-to_path=r"D:\proj\vue\vue3-zhihu-ts2-back"
+# from_path=r"D:\proj\vue\vue3-zhihu-ts2"
+# to_path=r"D:\proj\vue\vue3-zhihu-ts2-back"
 
+from_path=r"D:\proj\android\verif_code_android"
+to_path=r"D:\proj\android\verif_code_android-out"
 
 from peewee import *
 
@@ -28,21 +30,23 @@ class Person(Model):
         database = database
 # class back_dir_log
 
+# https://blog.csdn.net/weixin_34334744/article/details/91913194
 # python 没有 init ，有类变量
 class BackDirLog(Model):
     from_path = CharField()
     to_path= CharField()
     time = DateField()
-    id = IntegerField()
+    # id = IntegerField(primary_key=True)
+    # id = PrimaryKeyField()
 
     class Meta:
         database = database
 
-# backup_proj_src(from_path,to_path)
+backup_proj_src(from_path,to_path)
 # 创建表
 # Person.create_table()
 print("创建表")
-BackDirLog.create_table()
+# BackDirLog.create_table()
 # 创建表也可以这样, 可以创建多个
 # database.create_tables([Person])
 
@@ -53,8 +57,18 @@ BackDirLog.create_table()
 # python  现在时间
 # now_time = datetime.datetime.now()
 # backDirLog = BackDirLog(from_path=from_path, to_path=to_path, time=date())
-backDirLog = BackDirLog(from_path=from_path, to_path=to_path, time= datetime.datetime.now())
+# backDirLog = BackDirLog(from_path=from_path, to_path=to_path, time= datetime.datetime.now())
+now_time=datetime.datetime.now()
+print("now_time",now_time)
+# backDirLog = BackDirLog.create(from_path=from_path, to_path=to_path, time= datetime.datetime.now())
+backDirLog = BackDirLog.create(from_path=from_path, to_path=to_path, time= now_time)
+# P=Person.create(name=’name’,sex=’sex’);
+# p.save();
+# https://www.cnblogs.com/gl1573/p/10380793.html
+# https://blog.csdn.net/benben0729/article/details/80530310
 print("backDirLog",backDirLog)
+print("backDirLog.id",backDirLog.id)
+# http://bbs.chinaunix.net/thread-4186552-1-1.html
 # backDirLog None
 # save
 # python new 对象
