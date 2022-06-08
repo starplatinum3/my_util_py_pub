@@ -28,8 +28,11 @@ class Config():
         # self.jar_name = "/home/sugon/app/verif_code-0.0.1-SNAPSHOT.jar"
         # self.port = "8889"
 
-        self.jar_name = "/home/newfit/demo-0.0.1-SNAPSHOT.jar"
-        self.port = "8080"
+        # self.jar_name = "/home/newfit/demo-0.0.1-SNAPSHOT.jar"
+        # self.port = "8080"
+
+        self.jar_name = "/home/app/mqp-iot-db-0.0.1-SNAPSHOT.jar"
+        self.port = "8889"
 
         
         # self.jar_name = "pz-blog-1.0.jar"

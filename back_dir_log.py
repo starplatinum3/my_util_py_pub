@@ -16,8 +16,12 @@ from myfile import backup_proj_src
 # from_path=r"D:\proj\node\egg-demon\egg-demon"
 # to_path=r"D:\school\node\big\egg-git-cache"
 
-from_path=r"D:\proj\vue\git-cache-vue3"
-to_path=r"D:\school\node\big\git-cache-vue3"
+# from_path=r"D:\proj\vue\git-cache-vue3"
+# to_path=r"D:\school\node\big\git-cache-vue3"
+
+from_path=r"D:\proj\java\mqtt-control"
+to_path=r"D:\proj\java\zhihu-db"
+
 
 
 from peewee import *
