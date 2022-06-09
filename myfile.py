@@ -1369,10 +1369,20 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\springboot\37736springboot实战派代码\Spring-Boot-Book\11\JpaArticleRedisDemo"
     # dst_path = r"D:\school\spb\lab10\JpaArticleRedisDemo"
 
-    proj_path = r"D:\proj\vue\0.32-iView（色盲）\0.32-iView"
-    dst_path = r"D:\proj\vue\iView-032"
+    # proj_path = r"D:\proj\vue\0.32-iView（色盲）\0.32-iView"
+    # dst_path = r"D:\proj\vue\iView-032"
 
+    # proj_path = r"D:\proj\javaProj\drPeng2"
+    # dst_path = r"D:\proj\javaProj\drPengCode"
 
+    # proj_path = r"D:\proj\uniapp\iView-lsq"
+    # dst_path = r"D:\proj\uniapp\iView-lsq-little"
+
+    # proj_path = r"D:\proj\uniapp\iView-lsq-little"
+    # dst_path = r"D:\proj\uniapp\iView-lsq-little-me"
+
+    proj_path = r"D:\proj\springboot\iot-db"
+    dst_path = r"D:\proj\springboot\msg-db"
     
 
     
