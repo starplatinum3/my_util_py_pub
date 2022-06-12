@@ -1,3 +1,4 @@
+from copy import copy
 import os
 # from os.path import getsize
 
@@ -9,6 +10,7 @@ from strUtil.strUtil import sub_strs_start_end_all
 # from .direction import *
 import sys
 import strUtil.strUtil
+from time_util import get_now_time_str
 
 
 # !/usr/bin/python
@@ -144,6 +146,17 @@ def print_files_if(path, cond_func, **kwargs):
             # print(os.path.join(path, f))
             print(abs_path)
 
+def back_up_and_write(path,data):
+    # os.
+    time_str=get_now_time_str()
+    back_path=f"{path}.{time_str}"
+    # copy()
+    print("back_path",back_path)
+    os.rename(path, back_path)
+
+    with open(path,"w") as f:
+        f.write(data)
+
 
 # def get_files_if(path, file_lst: list, cond_func, **kwargs):
 #     lsdir = os.listdir(path)
@@ -170,7 +183,7 @@ def print_files_if(path, cond_func, **kwargs):
 #             print(abs_path)
 #             file_lst.append(abs_path)
 
-# 不是纯函数啊 
+# 不是纯函数啊
 def get_files_if(path, file_lst: list, like_str_lst: list, ignore_dir_lst: list):
     lsdir = os.listdir(path)
     dirs = [i for i in lsdir if os.path.isdir(os.path.join(path, i))]
@@ -313,7 +326,7 @@ def get_src_dst_list(src, dst, src_lst: list, dst_lst: list,
             dst_lst.append(abs_path_dst)
         idx += 1
 
-# 放到list re_lst 是类似他的  
+# 放到list re_lst 是类似他的
 def get_src_dst_list_re(src, dst, src_lst: list, dst_lst: list,
                         ignore_dir_lst: list, re_lst):
     lsdir = os.listdir(src)
@@ -564,7 +577,7 @@ def cmd():
     # //进行视频的合并
     # ffmpeg -f concat -i list.txt -c copy concat.mp4
     # https://www.cnblogs.com/qican/p/11468866.html
-    :return: 
+    :return:
     """
 
     cut_start_time = ""
@@ -608,7 +621,7 @@ def absolute_mkdir(dir_name):
 def make_dir_if_not_exists(dir):
     if os.path.exists(dir):
         return
-    # pyton  mkdri 
+    # pyton  mkdri
     print("创建目录 ",dir)
     os.mkdir(dir)
 
@@ -772,7 +785,7 @@ def rename_zip_and_copy_one_dir(abs_path, out_dir, name):
         if file.startswith("31901077"):
             if "111" in file:
                 continue
-           
+
             out_file = os.path.join(out_dir, name + ".zip")
             src_file = os.path.join(abs_path, file)
             copyfile(src_file, out_file)
@@ -928,15 +941,16 @@ def copyfile_lst(src_lst, dst_lst):
 
 
 def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"G:\project\react\AwesomeBasketball"
-,ignore_dir_lst = ["dist", "node_modules", ".git", ".idea","out","target","build","backup","sql","release","unpackage"]):
+,ignore_dir_lst = ["dist", "node_modules", ".git", ".idea","out","target","build","backup","sql","release",
+"unpackage","htmlStable"]):
     # proj_path = r"G:\project\springbootProj\writer\writer-vue-new\writer-vue-new"
     # proj_path = r"G:\project\springbootProj\writer-new2\writer-new"
     # proj_path = r"G:\project\Android\LoginApplication\LoginApplication"
     # proj_path = r"G:\project\Android\AccountingMainLayoutSteps"
     # proj_path = r"G:\project\Android\moments"
     # proj_path = r"G:\project\springbootProj\kinect3"
-    
-    
+
+
     # proj_path = r"G:\project\javaProj\gaoji"
     # dst_path = r"G:\考公"
     # dst_path = r"G:\project\springbootProj\writer-new2\backup2021年10月10日153506"
@@ -952,7 +966,7 @@ def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"
 
     # proj_path = r"G:\project\Android\LoginApplication\handout\loginApllication"
     # dst_path = r"G:\project\Android\LoginApplicationX2"
-    
+
     # proj_path = r"G:\project\Android\LoginApplication\handout\loginApllication"
     # dst_path = r"G:\project\Android\backup\LoginApplicationV7"
 
@@ -963,7 +977,7 @@ def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"
 
     # proj_path = r"G:\project\Android\moments"
     # dst_path = r"G:\project\Android\moments_sensen"
-    
+
     # proj_path = r"G:\project\Android\moments"
     # dst_path = r"D:\project\android\moments"
 
@@ -979,7 +993,7 @@ def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"
 
     # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
     # dst_path = r"D:\什么垃圾\备份\what-rubbish-private-sjc_add_color"
-    
+
     # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
     # dst_path = r"D:\什么垃圾\备份\what-rubbish-private-register_cant_find"
 
@@ -999,7 +1013,7 @@ def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"
 
     # proj_path = r"D:\proj\waibao\whatRubbish2\what-rubbish-private"
     # dst_path = r"D:\proj\waibao\whatRubbish2\代码注释删除之前"
-    
+
     # proj_path = r"D:\proj\wx\temp_wx"
     # dst_path = r"D:\school\iot\大作业\微信小程序"
 
@@ -1052,14 +1066,14 @@ def backup_proj_src(proj_path = r"G:\project\react\AwesomeProject",dst_path = r"
     # dst_path = r"D:\proj\Android\physics_ball_rolling_game"
 
     # 安卓物理小球滚动游戏源码
-    
+
 
     # proj_path = r"G:\project\react\AwesomeProject"
     # dst_path = r"G:\project\react\AwesomeBasketball"
-    
 
-    
-    
+
+
+
     # dst_path = r"G:\project\javaProj\gaoji_back"
     file_lst = []
     dst_lst = []
@@ -1208,13 +1222,13 @@ if __name__ == "__main__":
     # download_img(url_pic,"code",".jpg","imgs")
     # search_path = r"D:\project\javaProj\oppHomework"
     search_path = r"G:\file\学校\zju-icicles-master"
-    
+
     # print_files_if_name_like(search_path,like_what="sjc")
     personal_words = []
     # print_files_if_name_like_ignore_case(search_path,like_what=".zip")
     # code_path = r"G:\project\pythonProj\my_util"
     code_path = r"G:\file\学校\Android\lab6\moments"
-    
+
     # print_files_if_size_with_unit(code_path,1,"MB")
 #     G:\file\学校\Android\lab6\moments\.gradle\6.1.1\executionHistory\executionHistory.bin
 # size: 1874280 B,  1874.28 KB,  1.87428 MB
@@ -1286,7 +1300,7 @@ if __name__ == "__main__":
     # dst_path = r"D:\school\vue\demo3"
     # print("1")
 
-    
+
 
     # proj_path = r"D:\proj\node\egg-demon\egg-demon"
     # dst_path = r"D:\proj\node\git-cache-egg-pub"
@@ -1296,6 +1310,45 @@ if __name__ == "__main__":
 
     # proj_path = r"E:\project\pythonProj\blink_detect"
     # dst_path = r"E:\project\pythonProj\blink_detect_答辩完了"
+
+    # proj_path = r"D:\school\spb\lab3\L03ThymeleafDemo"
+    # dst_path = r"D:\school\spb\lab3\L03ThymeleafDemoCode"
+
+    # proj_path = r"D:\school\spb\Spring-Boot-Book\06\WebFluxMongodb"
+    # dst_path = r"D:\school\spb\lab4\WebFluxMongodbLab4"
+
+    # proj_path = r"D:\proj\springBoot\WebFlux_mongodb"
+    # dst_path = r"D:\school\spb\lab4\WebFlux_mongodb"
+
+    # proj_path = r"D:\school\spb\L04FluxServerPush"
+    # dst_path = r"D:\school\spb\lab4\L04FluxServerPush"
+
+    # proj_path = r"D:\school\spb\L04ReactiveMVC"
+    # dst_path = r"D:\school\spb\lab4\L04ReactiveMVC"
+
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第4章\example4"
+    # dst_path = r"D:\school\vue\lab4\code"
+
+    # proj_path = r"D:\proj\springBoot\zj4-3-1"
+    # dst_path = r"D:\proj\springBoot\zj4-3-1_to"
+
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第5章\example5-1"
+    # dst_path = r"D:\school\vue\lab5\code"
+
+    # proj_path = r"D:\school\spb\Spring-Boot-Book\08\JpaArticleDemo"
+    # dst_path = r"D:\school\spb\lab6\JpaArticleDemo"
+
+    # proj_path = r"D:\school\spb\lab3\L03ThymeleafDemo"
+    # dst_path = r"D:\school\spb\lab6\JpaStu"
+
+    # proj_path = r"D:\proj\android\compx202-assignment4_"
+    # dst_path = r"D:\proj\android\compx202-assignment4"
+
+    # proj_path = r"D:\proj\android\compx202-assignment4"
+    # dst_path = r"D:\school\android\compx202-assignment4"
+
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第9章\example9-1"
+    # dst_path = r"D:\school\vue\lab9\code"
 
     # proj_path = r"D:\school\spb\lab3\L03ThymeleafDemo"
     # dst_path = r"D:\school\spb\lab3\L03ThymeleafDemoCode"
@@ -1372,8 +1425,59 @@ if __name__ == "__main__":
     # proj_path = r"D:\proj\vue\0.32-iView（色盲）\0.32-iView"
     # dst_path = r"D:\proj\vue\iView-032"
 
-    # proj_path = r"D:\proj\javaProj\drPeng2"
-    # dst_path = r"D:\proj\javaProj\drPengCode"
+    # proj_path = r"D:\private\writer-private"
+    # dst_path = r"D:\private\party-school"
+
+    # proj_path = r"D:\school\node\lab12.nodejs"
+    # dst_path = r"D:\school\node\lab12.nodejs-no-mod"
+
+    # proj_path = r"D:\proj\vue\vue3-zhihu-ts2"
+    # dst_path = r"D:\proj\vue\vue-material-phone"
+
+    # proj_path = r"D:\school\vue\easy-to-learn-vue3-0---liu-bing\书中程序源码及项目\第11章\example11"
+    # dst_path = r"D:\proj\vue\vue-material-phone-js"
+
+    # proj_path = r"D:\proj\vue\vue-material-phone-js"
+    # dst_path = r"D:\school\vue\lab12-material\vue-material-phone-js-handout"
+
+    # proj_path = r"D:\proj\vue\writer-vue-new-private"
+    # dst_path = r"D:\private\party-school-vue"
+
+    # proj_path = r"D:\proj\vue\vue3-zhihu-ts2"
+    # dst_path = r"D:\school\vue\大作业\vue3-zhihu-ts2"
+    # D:\school\vue\大作业
+# D:\private\party-school
+    
+
+    # proj_path = r"D:\proj\springBoot\miaosha"
+    # dst_path = r"D:\proj\springBoot\miaoshaBackAsync"
+
+    # proj_path = r"D:\proj\springBoot\miaosha"
+    # dst_path = r"D:\proj\springBoot\miaoshaBackDev"
+
+    # proj_path = r"D:\proj\springBoot\miaosha"
+    # dst_path = r"D:\proj\springBoot\miaoshaBackGenMybatis"
+
+    # proj_path = r"D:\school\compile\plzoofs\microc"
+    # dst_path = r"D:\school\compile\microcConflict"
+    # https://zhuanlan.zhihu.com/p/351878804
+
+    # proj_path = r"D:\proj\vue\vue3-zhihu-ts2"
+    # dst_path = r"D:\school\vue\大作业\vue3-zhihu-ts-handout"
+
+    # proj_path = r"D:\school\compile\plzoofs\microc"
+    # dst_path = r"D:\school\compile\microc2"
+
+    # proj_path = r"D:\proj\springBoot\miaosha"
+    # dst_path = r"D:\school\spb\big\secKillDb"
+
+    # proj_path = r"D:\proj\vue\vue_shop"
+    # dst_path = r"D:\school\spb\big\vue_shop"
+    # D:\proj\springBoot\miaosha\LICENSE
+    # C:\Windows\System32\cmd.exe
+
+    proj_path = r"D:\proj\vue\vite-project"
+    dst_path = r"D:\school\spb\big\sek-kill-vue-admin"
 
     # proj_path = r"D:\proj\uniapp\iView-lsq"
     # dst_path = r"D:\proj\uniapp\iView-lsq-little"
@@ -1385,8 +1489,7 @@ if __name__ == "__main__":
     dst_path = r"D:\proj\springboot\msg-db"
     
 
-    
-    
+
 # D:\project\waibao\what-rubbish-final\app\src\main\java\com\bn\tl\anzhi
 
     backup_proj_src(proj_path = proj_path,dst_path=dst_path)
@@ -1395,7 +1498,7 @@ if __name__ == "__main__":
     # path=r"G:\file\1-210524153I0"
     # path=r"G:\file"
     # path=r"G:"
-    
+
     # file_lst=[]
     # like_str_lst=[]
     # ignore_dir_lst=["node_modules",".git",".gradle"]
@@ -1415,7 +1518,7 @@ if __name__ == "__main__":
     #     out_str+=i+"\n"
     # with open("findFileG.txt","w" ,encoding="utf-8") as f:
     #     f.write(out_str)
-        
+
 
 
 

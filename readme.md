@@ -41,3 +41,16 @@ D:\proj\python\my_util_py_pub\baidu_xiala.py
 
 2022年3月26日09:55:09
 imFront
+
+Traceback (most recent call last):
+  File "d:\proj\python\my_util_py_pub\ciyun.py", line 148, in <module>
+    main()
+  File "d:\proj\python\my_util_py_pub\ciyun.py", line 112, in main
+    words_stat = words_df.groupby(by=['segment'])['segment'].agg({"计数": numpy.size})
+  File "D:\software\anaconda\lib\site-packages\pandas\core\groupby\generic.py", line 249, in aggregate
+    ret = self._aggregate_multiple_funcs(func)
+  File "D:\software\anaconda\lib\site-packages\pandas\core\groupby\generic.py", line 284, in _aggregate_multiple_funcs
+    raise SpecificationError("nested renamer is not supported")
+pandas.core.base.SpecificationError: nested renamer is not supported
+
+python -m pip install peewee  -i https://pypi.tuna.tsinghua.edu.cn/simple
