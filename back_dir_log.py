@@ -30,8 +30,14 @@ from myfile import backup_proj_src
 
 # D:\proj\Android\ZlwAudioRecorder>
 
-from_path=r"D:\proj\Android\ZlwAudioRecorder"
-to_path=r"D:\proj\Android\ZlwAudioRecorder-no-face"
+# from_path=r"D:\proj\Android\ZlwAudioRecorder"
+# to_path=r"D:\proj\Android\ZlwAudioRecorder-no-face"
+
+
+
+from_path=r"D:\proj\springboot\kinect3"
+to_path=r"D:\proj\newfit\newfit-backend"
+
 
 # from_path=r"D:\proj\cordova\zhihu-cordova"
 # to_path=r"D:\school\vue\大作业\提交\zhihu-cordova"
