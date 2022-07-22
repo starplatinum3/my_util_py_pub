@@ -34,3 +34,7 @@ pattern = r"(\((?:[^()]++|(?1))*\))(?=[^()]*$)"
 for s in strings:
     print(regex.sub(pattern, "", s))
     # print(re.sub(pattern, "", s))
+
+
+print(290+230+388)
+# 908
