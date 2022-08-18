@@ -25,8 +25,13 @@ from myfile import backup_proj_src
 # from_path=r"D:\proj\vue\vue3-zhihu-ts2"
 # to_path=r"D:\school\vue\大作业\提交\vue3-zhihu-ts2"
 
-from_path=r"D:\proj\java\zhihu-db"
-to_path=r"D:\school\vue\大作业\提交\zhihu-db"
+# from_path=r"D:\proj\java\zhihu-db"
+# to_path=r"D:\school\vue\大作业\提交\zhihu-db"
+
+from_path=r"D:\proj\springShort\GCSM-server"
+to_path=r"D:\proj\springBoot\GCSM-server-give"
+
+# D:\proj\springShort\GCSM-server>
 
 # from_path=r"D:\proj\cordova\zhihu-cordova"
 # to_path=r"D:\school\vue\大作业\提交\zhihu-cordova"
