@@ -1479,6 +1479,14 @@ if __name__ == "__main__":
     proj_path = r"D:\proj\vue\vite-project"
     dst_path = r"D:\school\spb\big\sek-kill-vue-admin"
 
+    # proj_path = r"D:\proj\uniapp\iView-lsq"
+    # dst_path = r"D:\proj\uniapp\iView-lsq-little"
+
+    # proj_path = r"D:\proj\uniapp\iView-lsq-little"
+    # dst_path = r"D:\proj\uniapp\iView-lsq-little-me"
+
+    proj_path = r"D:\proj\springboot\iot-db"
+    dst_path = r"D:\proj\springboot\msg-db"
     
 
 

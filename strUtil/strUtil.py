@@ -50,6 +50,7 @@ def is_chinese(string):
     return True
 
 
+
 def format_post_data(headers_str):
     pattern = '^(.*?):(.*)$'
     for line in headers_str.splitlines():

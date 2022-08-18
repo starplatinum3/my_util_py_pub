@@ -58,3 +58,7 @@ Traceback (most recent call last):
 pandas.core.base.SpecificationError: nested renamer is not supported
 
 python -m pip install peewee  -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+git add .
+git commit -m "nginx"
+git push origin master

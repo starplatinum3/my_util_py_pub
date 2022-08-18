@@ -28,22 +28,32 @@ from myfile import backup_proj_src
 # from_path=r"D:\proj\java\zhihu-db"
 # to_path=r"D:\school\vue\大作业\提交\zhihu-db"
 
-from_path=r"D:\proj\springShort\GCSM-server"
-to_path=r"D:\proj\springBoot\GCSM-server-give"
+# D:\proj\Android\ZlwAudioRecorder>
 
-# D:\proj\springShort\GCSM-server>
+# from_path=r"D:\proj\Android\ZlwAudioRecorder"
+# to_path=r"D:\proj\Android\ZlwAudioRecorder-no-face"
+
+
+
+from_path=r"D:\proj\springboot\kinect3"
+to_path=r"D:\proj\newfit\newfit-backend"
+
 
 # from_path=r"D:\proj\cordova\zhihu-cordova"
 # to_path=r"D:\school\vue\大作业\提交\zhihu-cordova"
 
 
-
+# peewee.ImproperlyConfigured: MySQL driver not installed!
 from peewee import *
 
 # 连接数据库
 # database = MySQLDatabase('test', user='root', host='localhost', port=3306)
 # database = MySQLDatabase('test', user='root',password='123456', host='localhost', port=3306)
-database = MySQLDatabase('mqtt_control', user='root',password='123456', host='localhost', port=3306)
+host='43.142.150.223'
+# host='localhost'
+# database = MySQLDatabase('mqtt_control', user='root',password='123456', host=host, port=3306)
+database = MySQLDatabase('mqtt_control', user='root',password='123456', host=host, port=3306)
+# 43.142.150.223
 # back_dir_log
 # 定义Person
 class Person(Model):

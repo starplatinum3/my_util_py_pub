@@ -7,15 +7,22 @@ from top.starp.logger import Logger
 # port="8889"
 # port="8890"
 # 阿里云打开
+
+def get_father_dir(path):
+    return os.path.abspath(os.path.join(path, os.pardir))
 ################ config #####################
 # 配置 html 静态文件的位置
 # root_path="/home/mqp/wx-sorting_build"
 # root_path="/home/mqp/gitCacheVue/dist/dist"
-root_path="/home/mqp/imFront/dist"
+# root_path="/home/mqp/imFront/dist"
+zip_file_path="/home/app/exam-vue/dist.zip"
+father_dir= get_father_dir(zip_file_path)
+root_path=f'{father_dir}/dist'
 
+# unzip   -o  dist.zip  -d 	 dist/
 #/home/mqp/wx-sorting_build_web_desktop
-do_unzip=False
-
+# do_unzip=False
+do_unzip=True
 # root_path="/home/mqp/wx-sorting_build_web_desktop"
 
 #/home/mqp/wx-sorting_build_web_desktop
@@ -119,8 +126,9 @@ out_str=nginx_template.replace("$port$", port)
 out_str=out_str.replace("$root_path$", root_path)
 
 
+if do_unzip:
 # unzip   -o  dist.zip  -d 	 dist/
-
+    os.system(f"unzip   -o  {zip_file_path}  -d 	{father_dir}/dist/")
 
 nginx_root_dir=f"/home/nginx/{port}"
 # makrdir 
@@ -155,3 +163,5 @@ print("查看nginx 有没有启动")
 os.system(f"lsof -i :{port}")
 # os.system(f"/home/nginx/{port}/nginx -c /home/nginx/{port}/nginx_{port}.conf")
 
+print ("father_dir",father_dir)
+print("root_path",root_path)
