@@ -23,18 +23,36 @@ print(4.5*12)
 
 print(15*5)
 
-import regex
-# import re
-strings = [
-    "hell(h)o(world)",
-    "hel(lo(wor)ld)",
-    "hell(h)o(world)blahblahblah"
-]
-pattern = r"(\((?:[^()]++|(?1))*\))(?=[^()]*$)"
-for s in strings:
-    print(regex.sub(pattern, "", s))
+# import regex
+# # import re
+# strings = [
+#     "hell(h)o(world)",
+#     "hel(lo(wor)ld)",
+#     "hell(h)o(world)blahblahblah"
+# ]
+# pattern = r"(\((?:[^()]++|(?1))*\))(?=[^()]*$)"
+# for s in strings:
+#     print(regex.sub(pattern, "", s))
     # print(re.sub(pattern, "", s))
 
 
 print(290+230+388)
 # 908
+
+print(53.8/2)
+# 26.9
+
+# print(1.5/22)
+# print(22/1.5)
+# print(19.9/(6*0.2))
+# 14.666666666666666
+# 16.58333333333333
+
+print(16.9/(50*15))
+# 0.022533333333333332
+
+print( 24.50 / (60 * 12) )
+# 0.034027777777777775
+
+print( 29.9 / (60 * 24) )
+# 0.020763888888888887

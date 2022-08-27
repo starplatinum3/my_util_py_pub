@@ -32,7 +32,11 @@ class Config():
         # self.port = "8080"
 
         self.jar_name = "/home/app/mqp-iot-db-0.0.1-SNAPSHOT.jar"
-        self.port = "8889"
+        # self.port = "8889"
+
+        # self.jar_name = "/home/app/springboot-react-blog/tell-server/target"
+        # 如果只要kill的话 port 配置对了就行
+        self.port = "8081"
 
         
         # self.jar_name = "pz-blog-1.0.jar"
