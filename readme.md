@@ -35,8 +35,9 @@ port_what_pid.py
 
 make_dir_if_not_exists
 git commit -m "D:\proj\python\my_util_py_pub\merge_sql.py"
-git add .
 git commit -m "blog kill java"
+git add .
+git commit -m "record"
 git push origin master
 
 14点05分 2022年3月10日
