@@ -3,6 +3,8 @@
 文档
 https://acc15t4bm5.feishu.cn/docs/doccnLdlkjx4L1SmPcvDHNESMic
 
+使用说明: 使用backup_proj_src 修改当前路径和 路径即可使用
+
 
 草稿
 pandas 一列的某个值是什么 就修改
