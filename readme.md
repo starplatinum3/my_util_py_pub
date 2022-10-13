@@ -4,7 +4,25 @@
 https://acc15t4bm5.feishu.cn/docs/doccnLdlkjx4L1SmPcvDHNESMic
 
 使用说明: 使用backup_proj_src 修改当前路径和 路径即可使用
+copy /b  生活照.jpg+1.jpg 3.jpg
+copy /b  生活照.jpg+"D:\物理创新.png"  生活照2M.jpg
+"D:\物理创新.png"
 
+copy /b   生活照.jpg+"D:\物理创新.zip" 生活照2MzIp.jpg
+
+copy /b   生活照.jpg+"D:\物理创新.zip" 生活照2MzIp.jpg
+copy /b   "D:\download\附件1 国家奖学金相关申请表\提交\展板\生活照.jpg"+"D:\物理创新.zip" "D:\download\附件1 国家奖学金相关申请表\提交\展板\生活照2M_abs.jpg"
+
+copy /b   "D:\download\file filename\1.jpg"+"D:\filenameZip.zip" "D:\download\file filename\2M_abs.jpg"
+字符串打开太慢了 
+copy /b  "D:\download\初音天使.jpg"+"D:\物理创新.zip"  "D:\download\把我改成zip后缀的话.jpg"
+
+
+copy /b   "D:\origin.txt"+"D:\物理创新.zip"  "D:\finalText.txt"
+"D:\物理创新.zip"  "D:\origin.txt"
+
+生活照.jpg
+copy /b 1.jpg+2.zip 3.jpg
 
 草稿
 pandas 一列的某个值是什么 就修改

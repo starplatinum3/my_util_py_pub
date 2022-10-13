@@ -1,0 +1,441 @@
+##定义初始变量
+#set($tableName = $tool.append($tableInfo.name, "Controller"))
+##设置回调
+$!callback.setFileName($tool.append($tableName, ".java"))
+$!callback.setSavePath($tool.append($tableInfo.savePath, "/controller"))
+##拿到主键
+#if(!$tableInfo.pkColumn.isEmpty())
+    #set($pk = $tableInfo.pkColumn.get(0))
+#end
+
+#if($tableInfo.savePackageName)package $!{tableInfo.savePackageName}.#{end}controller;
+
+import $!{tableInfo.savePackageName}.entity.$!{tableInfo.name};
+import $!{tableInfo.savePackageName}.service.$!{tableInfo.name}Service;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+
+/**
+* $!{tableInfo.comment}($!{tableInfo.name})表控制层
+*
+* @author $!author
+* @since $!time.currTime()
+*/
+@RestController
+@RequestMapping("$!tool.firstLowerCase($tableInfo.name)")
+public class $!{tableName} {
+/**
+* 服务对象
+*/
+@Resource
+private $!{tableInfo.name}Service $!tool.firstLowerCase($tableInfo.name)Service;
+
+/**
+* 通过主键查询单条数据
+*
+* @param id 主键
+* @return 单条数据
+*/
+@GetMapping("selectOne")
+public $!{tableInfo.name} selectOne($!pk.shortType id) {
+return this.$!{tool.firstLowerCase($tableInfo.name)}Service.queryById(id);
+}
+
+
+//    @Autowired
+//    private $!{tableInfo.name}Repository $!tool.firstLowerCase($tableInfo.name)Repository;
+
+/*新增或编辑
+let  data= {
+
+#foreach($column in $tableInfo.fullColumn)
+    "$!{column.name}":null ,
+#end
+}
+//         axios.post(Common.baseUrl + "/$!tool.firstLowerCase($tableInfo.name)/save",data)
+this.#[[$]]#axios.post( "/$!tool.firstLowerCase($tableInfo.name)/save",data)
+.then((res) => {
+
+console.log("res");
+console.log(res);
+let  data= res.data.data
+});
+*/
+@PostMapping("/save")
+//        @ApiOperation(value = "save ", notes = "save ")
+public Object save(@RequestBody $!{tableInfo.name} $!tool.firstLowerCase($tableInfo.name)) {
+try {
+return ReturnT.success($!tool.firstLowerCase($tableInfo.name)Service.saveOrUpdate($!tool.firstLowerCase($tableInfo.name)));
+} catch (Exception e) {
+e.printStackTrace();
+return ReturnT.error("保存失败");
+}
+
+}
+
+
+
+/*
+let  data=  [
+{
+#foreach($column in $tableInfo.fullColumn)
+"$!{column.name}":null ,
+#end
+}
+]
+// axios.post(Common.baseUrl + "/$!tool.firstLowerCase($tableInfo.name)/saveAll",data)
+this.#[$]#axios.post( "/$!tool.firstLowerCase($tableInfo.name)/saveAll",data)
+.then(res => {
+
+console.log("res");
+console.log(res);
+Toast('saveAll成功');
+let  data= res.data.data
+});
+*/
+@PostMapping("/saveAll")
+//    @ApiOperation(value = "saveAll", notes = "saveAll")
+public Object saveAll(@RequestBody List<$!{tableInfo.name}> list){
+    try {
+    return ReturnT.success($!tool.firstLowerCase($tableInfo.name)Service.saveOrUpdateBatch(list));
+    } catch (Exception e) {
+    e.printStackTrace();
+    return ReturnT.error("保存失败");
+    }
+
+    }
+
+
+
+    /*
+    let  data= {
+#foreach($column in $tableInfo.fullColumn)
+"$!{column.name}":null ,
+#end
+    }
+    //     axios.post(Common.baseUrl + "/$!tool.firstLowerCase($tableInfo.name)/deleteBy",data)
+    this.#[$]#axios.post( "/$!tool.firstLowerCase($tableInfo.name)/deleteBy",data)
+    .then((res) => {
+
+    console.log("res");
+    console.log(res);
+    Toast('删除成功');
+    let  data= res.data.data
+
+    });
+    */
+    @PostMapping("/deleteBy")
+    //    @ApiOperation(value = "deleteBy", notes = "deleteBy")
+    public Object deleteBy(@RequestBody  $!{tableInfo.name} $!tool.firstLowerCase($tableInfo.name)) {
+    try {
+    //            Integer id = $!tool.firstLowerCase($tableInfo.name).getId();
+    Integer id = $!tool.firstLowerCase($tableInfo.name).get$!{tableInfo.name}Id();
+    $!tool.firstLowerCase($tableInfo.name)Service.removeById(id);
+    return ReturnT.success("删除成功");
+    } catch (Exception e) {
+    e.printStackTrace();
+    return ReturnT.error(e.getMessage());
+    }
+    }
+
+
+
+
+
+
+    @Resource
+    $!{tableInfo.name}Service $!tool.firstLowerCase($tableInfo.name)Service;
+
+    /*
+    let  data= {
+#foreach($column in $tableInfo.fullColumn)
+"$!{column.name}":null ,
+#end
+    }
+    // axios.post(Common.baseUrl + `/$!tool.firstLowerCase($tableInfo.name)/selectPage/equal?pageNumber=${this.pageNumber}&pageSize=${this.pageSize}`,data)
+    this.#[$]#axios.post(`/$!tool.firstLowerCase($tableInfo.name)/selectPage/equal?pageNumber=${this.pageNumber}&pageSize=${this.pageSize}`,data)
+    .then(res => {
+
+    console.log("res");
+    console.log(res);
+    this.tableData = res.data.data.records;
+    this.pageTotal= res.data.data.total
+    });
+    */
+    @RequestMapping(value = "/selectPage/equal", method = RequestMethod.POST)
+    public Object selectPageEqual(@RequestBody $!{tableInfo.name} $!tool.firstLowerCase($tableInfo.name),
+    @RequestParam(required = false, defaultValue = "1") int pageNumber,
+    @RequestParam(required = false, defaultValue = "10") int pageSize) {
+    try {
+    //            com.baomidou.mybatisplus.extension.plugins.pagination.Page<$!{tableInfo.name}> pageTool =
+        //            new   com.baomidou.mybatisplus.extension.plugins.pagination.Page<>(pageNumber,pageSize);
+        Page<$!{tableInfo.name}> pageTool = new  Page<>(pageNumber,pageSize);
+
+            LambdaQueryWrapper<$!{tableInfo.name}> equals = Wrappers.lambdaQuery();
+                equals
+                .eq(
+                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getAnswerId()),
+                $!{tableInfo.name}::getAnswerId,
+                $!tool.firstLowerCase($tableInfo.name).getAnswerId()
+                )
+                .eq(
+                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getExamId()),
+                $!{tableInfo.name}::getExamId,
+                $!tool.firstLowerCase($tableInfo.name).getExamId()
+                )
+                .eq(
+                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestMan()),
+                $!{tableInfo.name}::getTestMan,
+                $!tool.firstLowerCase($tableInfo.name).getTestMan()
+                )
+                .eq(
+                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestTime()),
+                $!{tableInfo.name}::getTestTime,
+                $!tool.firstLowerCase($tableInfo.name).getTestTime()
+                )
+                .eq(
+                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTotalScore()),
+                $!{tableInfo.name}::getTotalScore,
+                $!tool.firstLowerCase($tableInfo.name).getTotalScore()
+                )
+                .eq(
+                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestChecker()),
+                $!{tableInfo.name}::getTestChecker,
+                $!tool.firstLowerCase($tableInfo.name).getTestChecker()
+                )
+                .eq(
+                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestCheckTime()),
+                $!{tableInfo.name}::getTestCheckTime,
+                $!tool.firstLowerCase($tableInfo.name).getTestCheckTime()
+                )
+                .eq(
+                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestComment()),
+                $!{tableInfo.name}::getTestComment,
+                $!tool.firstLowerCase($tableInfo.name).getTestComment()
+                )
+                .eq(
+                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestCheckStatus()),
+                $!{tableInfo.name}::getTestCheckStatus,
+                $!tool.firstLowerCase($tableInfo.name).getTestCheckStatus()
+                )
+
+                ;
+
+                IPage<$!{tableInfo.name}> page = $!tool.firstLowerCase($tableInfo.name)Service.page(pageTool,equals);
+                    return ReturnT.success(page);
+                    }catch (Exception e){
+                    log.info("error {}",e.getMessage());
+                    return  ReturnT.error(e.getMessage());
+                    }
+                    //            finally {
+                    //            PageHelper.clearPage();
+                    //             }
+                    }
+
+
+                    /* create
+                    let  data= {
+#foreach($column in $tableInfo.fullColumn)
+"$!{column.name}":null ,
+#end
+                    }
+                    //     axios.post(Common.baseUrl + "/$!tool.firstLowerCase($tableInfo.name)/create",data)
+                    this.#[$]#axios.post( "/$!tool.firstLowerCase($tableInfo.name)/create",data)
+                    .then((res) => {
+                    console.log("res");
+                    console.log(res);
+                    });
+                    */
+                    //    @ApiOperation(value = "create", notes = "create")
+                    @RequestMapping(value = "", method = RequestMethod.POST)
+                    public Object create(@RequestBody $!{tableInfo.name} $!tool.firstLowerCase($tableInfo.name)) {
+                    boolean save = $!tool.firstLowerCase($tableInfo.name)Service.save($!tool.firstLowerCase($tableInfo.name));
+                    return ReturnT.success(save);
+                    }
+
+                    /*
+                    let  data= {
+#foreach($column in $tableInfo.fullColumn)
+"$!{column.name}":null ,
+#end
+                    }
+                    //         axios.post(Common.baseUrl + `/$!tool.firstLowerCase($tableInfo.name)/selectPage?pageNumber=${this.pageNumber}&pageSize=${this.pageSize}`,data).then(res => {
+                    this.#[$]#axios.post( `/$!tool.firstLowerCase($tableInfo.name)/selectPage?pageNumber=${this.pageNumber}&pageSize=${this.pageSize}`,data).then(res => {
+                    console.log("res");
+                    console.log(res);
+                    });
+                    */
+                    @RequestMapping(value = "/selectPage", method = RequestMethod.POST)
+                    public Object selectPage(@RequestBody $!{tableInfo.name} $!tool.firstLowerCase($tableInfo.name),
+                    @RequestParam(required = false, defaultValue = "1") int pageNumber,
+                    @RequestParam(required = false, defaultValue = "10") int pageSize) {
+                    try {
+                    //            com.baomidou.mybatisplus.extension.plugins.pagination.Page<$!{tableInfo.name}> pageTool =
+                        //            new   com.baomidou.mybatisplus.extension.plugins.pagination.Page<>(pageNumber,pageSize);
+                        Page<$!{tableInfo.name}> pageTool = new  Page<>(pageNumber,pageSize);
+                            LambdaQueryWrapper<$!{tableInfo.name}> like = Wrappers.lambdaQuery();
+                                like
+                                .like(
+                                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getAnswerId()),
+                                $!{tableInfo.name}::getAnswerId,
+                                $!tool.firstLowerCase($tableInfo.name).getAnswerId()
+                                )
+                                .like(
+                                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getExamId()),
+                                $!{tableInfo.name}::getExamId,
+                                $!tool.firstLowerCase($tableInfo.name).getExamId()
+                                )
+                                .like(
+                                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestMan()),
+                                $!{tableInfo.name}::getTestMan,
+                                $!tool.firstLowerCase($tableInfo.name).getTestMan()
+                                )
+                                .like(
+                                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestTime()),
+                                $!{tableInfo.name}::getTestTime,
+                                $!tool.firstLowerCase($tableInfo.name).getTestTime()
+                                )
+                                .like(
+                                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTotalScore()),
+                                $!{tableInfo.name}::getTotalScore,
+                                $!tool.firstLowerCase($tableInfo.name).getTotalScore()
+                                )
+                                .like(
+                                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestChecker()),
+                                $!{tableInfo.name}::getTestChecker,
+                                $!tool.firstLowerCase($tableInfo.name).getTestChecker()
+                                )
+                                .like(
+                                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestCheckTime()),
+                                $!{tableInfo.name}::getTestCheckTime,
+                                $!tool.firstLowerCase($tableInfo.name).getTestCheckTime()
+                                )
+                                .like(
+                                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestComment()),
+                                $!{tableInfo.name}::getTestComment,
+                                $!tool.firstLowerCase($tableInfo.name).getTestComment()
+                                )
+                                .like(
+                                !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestCheckStatus()),
+                                $!{tableInfo.name}::getTestCheckStatus,
+                                $!tool.firstLowerCase($tableInfo.name).getTestCheckStatus()
+                                )
+
+                                ;
+
+                                IPage<$!{tableInfo.name}> page = $!tool.firstLowerCase($tableInfo.name)Service.page(pageTool,like);
+                                    return ReturnT.success(page);
+                                    }catch (Exception e){
+                                    log.info("error {}",e.getMessage());
+                                    return  ReturnT.error(e.getMessage());
+                                    }
+                                    }
+
+                                    /*
+                                    let  data= []
+                                    //     axios.post(Common.baseUrl + "/$!tool.firstLowerCase($tableInfo.name)/removeByIds",data)
+                                    this.#[$]#axios.post( "/$!tool.firstLowerCase($tableInfo.name)/removeByIds",data)
+                                    .then(res=> {
+                                    console.log("res");
+                                    console.log(res);
+                                    });
+                                    */
+                                    @PostMapping("/removeByIds")
+                                    public Object removeByIds(@RequestBody  List<Integer> ids) {
+                                        try {
+                                        boolean b = $!tool.firstLowerCase($tableInfo.name)Service.removeByIds(ids);
+                                        return ReturnT.success("删除成功");
+                                        } catch (Exception e) {
+                                        e.printStackTrace();
+                                        return ReturnT.error(e.getMessage());
+                                        }
+                                        }
+
+                                        /*
+                                        let  data= {
+    #foreach($column in $tableInfo.fullColumn)
+        "$!{column.name}":null ,
+    #end
+                                        }
+                                        // axios.post(Common.baseUrl + `/$!tool.firstLowerCase($tableInfo.name)/selectPlusPage?pageNumber=${this.pageNumber}&pageSize=${this.pageSize}`,data)
+                                        this.#[$]#axios.post(`/$!tool.firstLowerCase($tableInfo.name)/selectPlusPage?pageNumber=${this.pageNumber}&pageSize=${this.pageSize}`,data)
+                                        .then(res => {
+
+                                        console.log("res");
+                                        console.log(res);
+                                        this.tableData = res.data.data.records;
+                                        console.log(" this.tableData")
+                                        console.log( this.tableData)
+                                        this.pageTotal= res.data.data.total
+                                        });
+                                        */
+                                        @RequestMapping(value = "/selectPlusPage", method = RequestMethod.POST)
+                                        public Object selectPlusPage(@RequestBody $!{tableInfo.name} $!tool.firstLowerCase($tableInfo.name),
+                                        @RequestParam(required = false, defaultValue = "1") int pageNumber,
+                                        @RequestParam(required = false, defaultValue = "10") int pageSize) {
+                                        try {
+                                        //                com.baomidou.mybatisplus.extension.plugins.pagination.Page<$!{tableInfo.name}> pageTool =
+                                            //                new   com.baomidou.mybatisplus.extension.plugins.pagination.Page<>(pageNumber,pageSize);
+                                            Page<$!{tableInfo.name}> pageTool = new  Page<>(pageNumber,pageSize);
+                                                LambdaQueryWrapper<$!{tableInfo.name}> like = Wrappers.lambdaQuery();
+                                                    like
+                                                    .like(
+                                                    !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getAnswerId()),
+                                                    $!{tableInfo.name}::getAnswerId,
+                                                    $!tool.firstLowerCase($tableInfo.name).getAnswerId()
+                                                    )
+                                                    .like(
+                                                    !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getExamId()),
+                                                    $!{tableInfo.name}::getExamId,
+                                                    $!tool.firstLowerCase($tableInfo.name).getExamId()
+                                                    )
+                                                    .like(
+                                                    !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestMan()),
+                                                    $!{tableInfo.name}::getTestMan,
+                                                    $!tool.firstLowerCase($tableInfo.name).getTestMan()
+                                                    )
+                                                    .like(
+                                                    !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestTime()),
+                                                    $!{tableInfo.name}::getTestTime,
+                                                    $!tool.firstLowerCase($tableInfo.name).getTestTime()
+                                                    )
+                                                    .like(
+                                                    !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTotalScore()),
+                                                    $!{tableInfo.name}::getTotalScore,
+                                                    $!tool.firstLowerCase($tableInfo.name).getTotalScore()
+                                                    )
+                                                    .like(
+                                                    !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestChecker()),
+                                                    $!{tableInfo.name}::getTestChecker,
+                                                    $!tool.firstLowerCase($tableInfo.name).getTestChecker()
+                                                    )
+                                                    .like(
+                                                    !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestCheckTime()),
+                                                    $!{tableInfo.name}::getTestCheckTime,
+                                                    $!tool.firstLowerCase($tableInfo.name).getTestCheckTime()
+                                                    )
+                                                    .like(
+                                                    !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestComment()),
+                                                    $!{tableInfo.name}::getTestComment,
+                                                    $!tool.firstLowerCase($tableInfo.name).getTestComment()
+                                                    )
+                                                    .like(
+                                                    !StringUtils.isNullOrEmpty($!tool.firstLowerCase($tableInfo.name).getTestCheckStatus()),
+                                                    $!{tableInfo.name}::getTestCheckStatus,
+                                                    $!tool.firstLowerCase($tableInfo.name).getTestCheckStatus()
+                                                    )
+
+                                                    ;
+                                                    IPage<$!{tableInfo.name}> page = $!tool.firstLowerCase($tableInfo.name)Service.page(pageTool,like);
+                                                        return ReturnT.success(page);
+                                                        }catch (Exception e){
+                                                        log.info("error {}",e.getMessage());
+                                                        return  ReturnT.error(e.getMessage());
+                                                        }
+
+                                                        }
+
+
+
+    }

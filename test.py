@@ -69,3 +69,28 @@ print(bin(123))
 #  0111 1
 print(int("0b01111000", 2))
 # 120
+
+import datetime
+
+now = datetime.datetime.now() # 当前时间
+from_date=datetime.datetime(2022,7,25)
+ago = now-datetime.timedelta(days=30) # 当前时间往前推30天
+
+# later = now+datetime.timedelta(days=30) # 当前时间往后推30天
+
+# later = now+datetime.timedelta(days=30*3) # 当前时间往后推30天
+later = from_date+datetime.timedelta(days=30*3) # 当前时间往后推30天
+# 2022-10-23 00:00:00
+print(later)
+# 2022-12-23 10:53:08.290978
+
+
+aa=100-66+22
+print(aa)
+# 56
+
+# 4.9598。  4.62/5  4.57/5。
+score=4.9598+ 4.62+4.57
+score/=3
+print("score",score)
+#  4.716600000000001
