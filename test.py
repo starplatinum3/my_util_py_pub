@@ -80,8 +80,12 @@ ago = now-datetime.timedelta(days=30) # 当前时间往前推30天
 
 # later = now+datetime.timedelta(days=30*3) # 当前时间往后推30天
 later = from_date+datetime.timedelta(days=30*3) # 当前时间往后推30天
+# later = from_date+datetime.timedelta(days=30*3) # 当前时间往后推30天
 # 2022-10-23 00:00:00
+print("later")
 print(later)
+# later
+# 2022-10-23 00:00:00
 # 2022-12-23 10:53:08.290978
 
 
@@ -94,3 +98,13 @@ score=4.9598+ 4.62+4.57
 score/=3
 print("score",score)
 #  4.716600000000001
+
+print(11/7)
+# 1.5714285714285714
+
+print(10/6)
+# 1.6666666666666667
+
+# 吃饭一小时
+print(11/8)
+# 1.375
