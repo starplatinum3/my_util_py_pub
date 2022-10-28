@@ -13,7 +13,14 @@ hosts_path="/etc/hosts"
 
 # with open("")
 import os
-os.system("cp %s %s"%(hosts_path,back_dir+"/hosts_"+get_now_time_str()))
+back_file=back_dir+"/hosts_"+get_now_time_str()
+print(f"cat {back_file}")
+cp_cmd="cp %s %s"%(hosts_path,back_dir+"/hosts_"+get_now_time_str())
+print("cp_cmd",cp_cmd)
+os.system(cp_cmd)
 
 with open(hosts_path,"a") as f:
+    hosts_origin=f.read()
+    print("hosts_origin",hosts_origin)
+    # hosts_origin++
     f.write("\n"+addHostStr+"\n")
