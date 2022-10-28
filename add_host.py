@@ -15,12 +15,25 @@ hosts_path="/etc/hosts"
 import os
 back_file=back_dir+"/hosts_"+get_now_time_str()
 print(f"cat {back_file}")
-cp_cmd="cp %s %s"%(hosts_path,back_dir+"/hosts_"+get_now_time_str())
+cp_cmd="cp %s %s"%(hosts_path,back_file)
 print("cp_cmd",cp_cmd)
 os.system(cp_cmd)
 
-with open(hosts_path,"a") as f:
+# io.UnsupportedOperation: not readable
+# 
+
+with open(hosts_path,"r") as f:
     hosts_origin=f.read()
     print("hosts_origin",hosts_origin)
-    # hosts_origin++
-    f.write("\n"+addHostStr+"\n")
+
+out_data=hosts_origin+"\n"+addHostStr+"\n"
+print("out_data")
+print(out_data)
+
+with open(hosts_path,"w") as f:
+    f.write(out_data)
+# with open(hosts_path,"a") as f:
+#     hosts_origin=f.read()
+#     print("hosts_origin",hosts_origin)
+#     # hosts_origin++
+#     f.write("\n"+addHostStr+"\n")
