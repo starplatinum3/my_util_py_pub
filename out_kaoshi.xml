@@ -1,0 +1,60 @@
+
+        <mxCell id="kaoshi-level-3-cell-提交问题-3" value="提交问题" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxGeometry x="110" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+
+            <mxCell id="line--kaoshi-level-2-cell-学生子系统-3-kaoshi-level-3-cell-提交问题-3"
+     style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" 
+    edge="1" parent="1" source="kaoshi-level-2-cell-学生子系统-3" target="kaoshi-level-3-cell-提交问题-3">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+        <mxCell id="kaoshi-level-3-cell-成绩查询-3" value="成绩查询" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxGeometry x="310" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+
+            <mxCell id="line--kaoshi-level-2-cell-学生子系统-3-kaoshi-level-3-cell-成绩查询-3"
+     style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" 
+    edge="1" parent="1" source="kaoshi-level-2-cell-学生子系统-3" target="kaoshi-level-3-cell-成绩查询-3">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+        <mxCell id="kaoshi-level-3-cell-在线考试-3" value="在线考试" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxGeometry x="510" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+
+            <mxCell id="line--kaoshi-level-2-cell-学生子系统-3-kaoshi-level-3-cell-在线考试-3"
+     style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" 
+    edge="1" parent="1" source="kaoshi-level-2-cell-学生子系统-3" target="kaoshi-level-3-cell-在线考试-3">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+        <mxCell id="kaoshi-level-3-cell-查看日志-3" value="查看日志" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxGeometry x="710" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+
+            <mxCell id="line--kaoshi-level-2-cell-学生子系统-3-kaoshi-level-3-cell-查看日志-3"
+     style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" 
+    edge="1" parent="1" source="kaoshi-level-2-cell-学生子系统-3" target="kaoshi-level-3-cell-查看日志-3">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+        <mxCell id="kaoshi-level-3-cell-修改密码-3" value="修改密码" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxGeometry x="910" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+
+            <mxCell id="line--kaoshi-level-2-cell-学生子系统-3-kaoshi-level-3-cell-修改密码-3"
+     style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" 
+    edge="1" parent="1" source="kaoshi-level-2-cell-学生子系统-3" target="kaoshi-level-3-cell-修改密码-3">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>
+
+        <mxCell id="kaoshi-level-3-cell-登录系统-3" value="登录系统" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxGeometry x="1110" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+
+            <mxCell id="line--kaoshi-level-2-cell-学生子系统-3-kaoshi-level-3-cell-登录系统-3"
+     style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" 
+    edge="1" parent="1" source="kaoshi-level-2-cell-学生子系统-3" target="kaoshi-level-3-cell-登录系统-3">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>

@@ -95,6 +95,9 @@ def remove_all(lst: list, what):
 # python 判断字符串是 空，空格
 # https://www.itranslater.com/qa/details/2127291587607659520
 def remove_none(lst: list):
+    """
+    item.isspace()
+    """
     ret_lst = []
     for item in lst:
         # https://www.cnblogs.com/jiyongjia/p/9539024.html

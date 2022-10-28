@@ -13,7 +13,7 @@
 # 习APP软件，数字化培训平台已成为企业培训的重要工具。
 # """
 
-from unicodedata import name
+# from unicodedata import name
 
 
 str="""
@@ -87,6 +87,47 @@ three_items_str="""
 
 """
 
+# def d():
+    
+
+class Line:
+    def __init__(self):
+        # self.start = start
+        # self.end = end
+        # self.text = text
+        self.id=""
+        self.name=""
+        self.source=""
+        self.target=""
+        self.target_node=""
+        self.diagram_name="kaoshi"
+        self.level=0
+    # def __init__(self, start, end, text):
+    #     self.start = start
+    #     self.end = end
+    #     self.text = text
+    def make_target_str(self):
+        self.target=self.target_node.id
+        # print(self.target)
+
+    def make_code(self):
+        return f"""
+            <mxCell id="line-{self.name}-{self.source}-{self.target}"
+     style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" 
+    edge="1" parent="1" source="{self.source}" target="{self.target}">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>"""
+        # return self.start + self.text + self.end
+
+def make_code_line(diagram_name,level,name,source,target):
+    return f"""
+            <mxCell id="{diagram_name}-level-{level}-line-{name}"
+     style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;"
+    edge="1" parent="1" source="{source}" target="{target}">
+      <mxGeometry relative="1" as="geometry" />
+    </mxCell>"""
+
+
 class Cell:
     def __init__(self) -> None:
         self.name=""
@@ -95,12 +136,31 @@ class Cell:
         self.level=3
         self.id_num=3
         self.x=3
+        # self.id=f"{self.diagram_name}-level-{self.level}-cell-{self.name}-{self.id_num}"
+
+    # def __init__(self,diagram_name,level,name,id_num,x) -> None:
+    #     # self.name=""
+    #     # # self.id=""
+    #     # self.diagram_name="kaoshi"
+    #     # self.level=3
+    #     # self.id_num=3
+    #     self.x=x
+
+    #     self.diagram_name=diagram_name
+    #     self.level=level
+    #     self.name=name
+    #     self.id_num=id_num
+    #     self.id=f"{self.diagram_name}-level-{self.level}-cell-{self.name}-{self.id_num}"
+
+    def make_id(self):
+        self.id=f"{self.diagram_name}-level-{self.level}-cell-{self.name}-{self.id_num}"
 
     def three_level_make(self):
         # id_num=4
+        # id="{self.diagram_name}-level-{self.level}-cell-{self.name}-{self.id_num}"
         return f"""
-        <mxCell id="{self.diagram_name}-level-{self.level}-{self.id_num}" value="{self.name}" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-        <mxGeometry x="{x}" y="540" width="120" height="60" as="geometry" />
+        <mxCell id="{self.id}" value="{self.name}" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxGeometry x="{self.x}" y="540" width="120" height="60" as="geometry" />
         </mxCell>"""
 
 
@@ -110,35 +170,184 @@ def three_level_make(name,id_num,x):
       <mxCell id="V5LRMonKBBMW_ER4-Cw3-{id_num}" value="{name}" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
       <mxGeometry x="{x}" y="540" width="120" height="60" as="geometry" />
     </mxCell>"""
+
+
 import  listUtil
 # listUtil.remove
 # imp 
 # ListU 
 # li
 
-id_num=4
-x=110
-three_items=three_items_str.split("\n")
-three_items=listUtil.remove_all(lst=three_items,what="")
+def  main():
+    id_num=4
+    x=110
+    three_items=three_items_str.split("\n")
+    three_items=listUtil.remove_all(lst=three_items,what="")
 
-for i in  three_items:
-    # print(f"*** {i}")
-    # three_level_node=three_level_make(name=i,id_num=id_num,x=x)
-    cell=Cell()
-    cell.x=x
-    cell.id_num=id_num
-    cell.name=i
-    # cell.id_num=id_num
-    three_level_node=cell.three_level_make()
+    for i in  three_items:
+        # print(f"*** {i}")
+        # three_level_node=three_level_make(name=i,id_num=id_num,x=x)
+        cell=Cell()
+        cell.x=x
+        cell.id_num=id_num
+        cell.name=i
+        cell.make_id()
+        
+        # cell.id_num=id_num
+        three_level_node=cell.three_level_make()
 
-    id_num+=1
-    x+=200
-    
-    
+        id_num+=1
+        x+=200
+        
+        
 
-    print(three_level_node)
+        print(three_level_node)
 
 
-# str=str.replace("\n","")
+def colStrToSelfInit(colsStr):
+    # colsStr="diagram_name,level,name,id_num"
+    cols=colsStr.split(",")
+    # str=str.replace("\n","")
 
-# print(str)
+    # print(str)
+
+    for col in cols:
+        print(f"self.{col}={col}")
+
+学生子系统_cell=Cell()
+学生子系统_cell.level=2
+学生子系统_cell.name="学生子系统"
+学生子系统_cell.make_id()
+line=Line()
+line.source=学生子系统_cell.id
+
+def tars_str_to_lines(tars_str,src_id):
+    # tars_str="""
+    # *** 提交问题
+    # *** 成绩查询
+    # *** 在线考试
+    # *** 查看日志
+    # *** 修改密码
+    # *** 登录系统"""
+    out_code=""
+    codeList=[]
+
+    tars=tars_str.split("\n")
+    tars=listUtil.remove_none(tars)
+    x_start=110
+    x_step=200
+    target_node_x=x_start
+    for tar in tars:
+        # *** 
+        tar=tar.replace("*** ","")
+        line=Line()
+        line.source=src_id
+        target_node=Cell()
+        target_node.x=target_node_x
+        target_node.name=tar
+        target_node.make_id()
+        target_node_code=target_node.three_level_make()
+        print(target_node_code)
+        out_code+=target_node_code+"\n"
+        line.target_node=target_node
+        # make_id
+        # def make_target_str(self):
+        line.make_target_str()
+        line_code=line.make_code()
+        # line.target_node.
+        print(line_code)
+        out_code+=line_code+"\n"
+        # make_code_line(diagram_name="kaoshi",level=3,name=tar,source=src_id,target=line.target_node.id)
+        target_node_x+=x_step
+        # line.target=f"{self.diagram_name}-level-{self.level}-line-{self.name}"
+        # line.target=f"{学生子系统_cell.diagram_name}-level-{学生子系统_cell.level}-cell-{tar}-{学生子系统_cell.id_num}"
+        # line.name=tar
+        # line.make_code()
+        # print(line.make_code())
+    with open(f"out_{学生子系统_cell.diagram_name}.xml","w",encoding="utf-8") as f:
+        f.write(out_code)
+
+
+wbs_code="""
+* 考试系统
+** 学生子系统
+*** 提交问题
+*** 成绩查询
+*** 在线考试
+*** 查看日志
+*** 修改密码
+*** 登录系统
+
+** 教师子系统
+*** 日志管理
+*** 信息发布
+*** 教师授权
+*** 用户管理
+*** 专家答疑
+*** 试题管理
+*** 考场监控
+*** 考试发布
+*** 修改密码
+*** 登录系统"""
+# main()
+tars_str="""
+*** 提交问题
+*** 成绩查询
+*** 在线考试
+*** 查看日志
+*** 修改密码
+*** 登录系统"""
+tars_str_to_lines(tars_str,src_id=学生子系统_cell.id)
+# D:\proj\python\my_util_py_pub\selfCode.py
+self_code_path=r"D:/proj/python/my_util_py_pub/selfCode.py"
+
+# def self_code_to_def(lines):
+#     # lines=f.readlines()
+#     for line in lines:
+#         # line=line.replace("\n","")
+#         line=line.replace("self.","")
+#         # line=line.replace("=","")
+#         # line=line.replace(" ","")
+#         print(f"def {line}():")
+#         print(f"    self.{line}={line}")
+
+
+def self_code_to_def(code):
+    # lines=f.readlines()
+    code=code.replace("self.","")
+    return code
+    # for line in lines:
+    #     # line=line.replace("\n","")
+    #     line=line.replace("self.","")
+    #     # line=line.replace("=","")
+    #     # line=line.replace(" ","")
+    #     print(f"def {line}():")
+    #     print(f"    self.{line}={line}")
+
+def main_self_code_to_def():
+
+    with open(self_code_path,"r") as f:
+        # lines=f.readlines()
+        code=f.read()
+        code=self_code_to_def(code)
+        print(code)
+        # self_code_to_def(lines)
+        # for line in lines:
+        #     line=line.replace("\n","")
+        #     line=line.replace("self.","")
+        #     line=line.replace("=","")
+        #     line=line.replace(" ","")
+        #     print(f"def {line}():")
+        #     print(f"    self.{line}={line}")
+
+
+def dfs(n):
+    if n>5:
+        return
+    # print(1)
+    print(n)
+    # 这个函数里面也在调用这个函数 就是递归
+    dfs(n+1)
+
+
+# dfs(1)
