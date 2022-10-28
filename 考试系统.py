@@ -13,6 +13,9 @@
 # 习APP软件，数字化培训平台已成为企业培训的重要工具。
 # """
 
+from unicodedata import name
+
+
 str="""
     2020年中国移动通信集团大会上，董事长杨杰指出:“渠道工作需加快转
 型升级步伐，打造线上线下结合、自有社会并重、传统新型协同的渠道格局，
@@ -84,11 +87,58 @@ three_items_str="""
 
 """
 
+class Cell:
+    def __init__(self) -> None:
+        self.name=""
+        self.id=""
+        self.diagram_name="kaoshi"
+        self.level=3
+        self.id_num=3
+        self.x=3
+
+    def three_level_make(self):
+        # id_num=4
+        return f"""
+        <mxCell id="{self.diagram_name}-level-{self.level}-{self.id_num}" value="{self.name}" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxGeometry x="{x}" y="540" width="120" height="60" as="geometry" />
+        </mxCell>"""
+
+
+def three_level_make(name,id_num,x):
+    # id_num=4
+    return f"""
+      <mxCell id="V5LRMonKBBMW_ER4-Cw3-{id_num}" value="{name}" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+      <mxGeometry x="{x}" y="540" width="120" height="60" as="geometry" />
+    </mxCell>"""
+import  listUtil
+# listUtil.remove
+# imp 
+# ListU 
+# li
+
+id_num=4
+x=110
 three_items=three_items_str.split("\n")
+three_items=listUtil.remove_all(lst=three_items,what="")
+
 for i in  three_items:
-    print(f"*** {i}")
+    # print(f"*** {i}")
+    # three_level_node=three_level_make(name=i,id_num=id_num,x=x)
+    cell=Cell()
+    cell.x=x
+    cell.id_num=id_num
+    cell.name=i
+    # cell.id_num=id_num
+    three_level_node=cell.three_level_make()
+
+    id_num+=1
+    x+=200
+    
+    
+
+    print(three_level_node)
 
 
-str=str.replace("\n","")
+# str=str.replace("\n","")
 
-print(str)
+# print(str)
