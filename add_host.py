@@ -37,3 +37,5 @@ with open(hosts_path,"w") as f:
 #     print("hosts_origin",hosts_origin)
 #     # hosts_origin++
 #     f.write("\n"+addHostStr+"\n")
+
+print(f"cat {hosts_path}")
